@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SelfCheck</string>
+
+    <item name="fab_phone" type="id" />
+    <item name="fab_browser" type="id" />
+    <item name="fab_credit" type="id" />
 </resources>
