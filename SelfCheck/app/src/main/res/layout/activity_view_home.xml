@@ -9,13 +9,15 @@
     android:id="@+id/consLayout">
 
     <ImageView
+        android:layout_above="@+id/layout_title"
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="350dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_centerInParent="true"
         android:src="@drawable/img_person" />
 
     <LinearLayout
+        android:id="@+id/layout_title"
         android:layout_above="@id/btnStart"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
@@ -28,43 +30,44 @@
             android:textColor="#fff"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:fontFamily="cursive"
-            android:text="SelfChecker"/>
+            android:text="SELF CHECKER"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="monospace"
+            android:textStyle="bold"
             android:text="powered by tetapdirumah.id"/>
     </LinearLayout>
 
     <com.rey.material.widget.Button
         android:id="@+id/btnStart"
-        style="@style/Material.Drawable.Ripple.Touch"
+        style="@style/Material.Drawable.Ripple.Touch.Light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="29dp"
-        android:fontFamily="cursive"
         android:textStyle="bold"
         android:layout_marginBottom="50dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/button_color_accent"
         android:padding="20dp"
         android:text="Start Assessment"
         android:textColor="#fff" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
         <com.leinardi.android.speeddial.SpeedDialView
             android:id="@+id/btnSpeedDial"
             app:sdExpansionMode="bottom"
-            style="@style/SpeedDial.FabLabelStyle"
+            style="@style/SpeedDial.Base"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="30dp"
+            app:sdMainFabClosedBackgroundColor="@color/colorPrimaryDark"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="bottom|end"

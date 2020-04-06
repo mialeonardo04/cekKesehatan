@@ -15,7 +15,6 @@
         android:text="Identitas Diri"
         android:layout_centerInParent="true"
         android:textSize="30dp"
-        android:fontFamily="cursive"
         android:layout_above="@id/layoutForm"/>
 
     <LinearLayout
@@ -27,88 +26,44 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/rectangle_radius_5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/et_nama"
-            android:fontFamily="cursive"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:hint="Nama Lengkap"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+        android:background="@drawable/rectangle_radius_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/et_kota"
-            android:fontFamily="cursive"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:hint="Asal Kota"/>
     </com.google.android.material.textfield.TextInputLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:textAlignment="center"
-                    android:fontFamily="cursive"
-                    android:inputType="number"
-                    android:hint="Umur"
-                    android:id="@+id/et_umur"/>
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:textAlignment="center"
-                    android:fontFamily="cursive"
-                    android:inputType="number"
-                    android:hint="BB"
-                    android:id="@+id/et_bb"/>
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:textAlignment="center"
-                    android:fontFamily="cursive"
-                    android:inputType="number"
-                    android:hint="TB"
-                    android:id="@+id/et_tb"/>
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
 
     </LinearLayout>
 
     <com.rey.material.widget.Button
-        android:background="@color/colorAccent"
+        android:id="@+id/form_btnStart"
+        android:background="@drawable/button_color_accent"
         android:textColor="#fff"
         android:layout_marginTop="20dp"
         android:layout_centerInParent="true"

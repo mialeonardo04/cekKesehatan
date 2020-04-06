@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:id="@+id/layout_dialog">
+
+    <com.rey.material.widget.Button
+        android:textColor="#fff"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/dialog_btn0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tidak Pernah"/>
+    <com.rey.material.widget.Button
+        android:textColor="#fff"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/dialog_btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jarang"/>
+    <com.rey.material.widget.Button
+        android:textColor="#fff"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/dialog_btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kadang-kadang"/>
+    <com.rey.material.widget.Button
+        android:textColor="#fff"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/dialog_btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sering"/>
+    <com.rey.material.widget.Button
+        android:textColor="#fff"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/dialog_btn4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selalu"/>
+
+</LinearLayout>

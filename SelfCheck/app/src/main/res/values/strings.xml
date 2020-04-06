@@ -4,4 +4,7 @@
     <item name="fab_phone" type="id" />
     <item name="fab_browser" type="id" />
     <item name="fab_credit" type="id" />
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

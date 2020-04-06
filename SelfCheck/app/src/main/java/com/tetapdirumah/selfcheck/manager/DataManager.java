@@ -1,0 +1,105 @@
+package com.tetapdirumah.selfcheck.manager;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+public class DataManager {
+
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
+    private Context _context;
+
+    private int PRIVATE_MODE = 0;
+
+    private static final String PREFER_NAME = "dataManager";
+    private static final String KEY_NAMA = "nama";
+    private static final String KEY_KOTA = "kota";
+    private static final String KEY_BATUK = "batuk";
+    private static final String KEY_DEMAM = "demam";
+    private static final String KEY_HIDUNG = "hidung";
+    private static final String KEY_TENGGOROKAN = "tenggorokan";
+    private static final String KEY_SESAK = "sesak";
+    private static final String KEY_KEPALA = "kepala";
+    private static final String KEY_PEGAL = "pegal";
+    private static final String KEY_BERSIN = "bersin";
+    private static final String KEY_LELAH = "lelah";
+    private static final String KEY_DIARE = "diare";
+
+    public DataManager(Context _context) {
+        this._context = _context;
+        preferences = _context.getSharedPreferences(PREFER_NAME, PRIVATE_MODE);
+        editor = preferences.edit();
+    }
+
+    public void createData(String nama, String kota){
+        editor.putString(KEY_NAMA, nama);
+        editor.putString(KEY_KOTA, kota);
+        editor.putString(KEY_BATUK, "0");
+        editor.putString(KEY_DEMAM, "0");
+        editor.putString(KEY_HIDUNG, "0");
+        editor.putString(KEY_TENGGOROKAN, "0");
+        editor.putString(KEY_SESAK, "0");
+        editor.putString(KEY_KEPALA, "0");
+        editor.putString(KEY_PEGAL, "0");
+        editor.putString(KEY_BERSIN, "0");
+        editor.putString(KEY_LELAH, "0");
+        editor.putString(KEY_DIARE, "0");
+        editor.commit();
+    }
+
+    public void updateBatuk(String s){
+        editor.putString(KEY_BATUK, s);
+        editor.apply();
+    }
+
+    public void updateDemam(String s){
+        editor.putString(KEY_DEMAM, s);
+        editor.apply();
+    }
+
+    public void updateHidung(String s){
+        editor.putString(KEY_HIDUNG, s);
+        editor.apply();
+    }
+
+    public void updateTenggorokan(String s){
+        editor.putString(KEY_TENGGOROKAN, s);
+        editor.apply();
+    }
+
+    public void updateSesak(String s){
+        editor.putString(KEY_SESAK, s);
+        editor.apply();
+    }
+
+    public void updateKepala(String s){
+        editor.putString(KEY_KEPALA, s);
+        editor.apply();
+    }
+
+    public void updatePegal(String s){
+        editor.putString(KEY_PEGAL, s);
+        editor.apply();
+    }
+
+    public void updateBersin(String s){
+        editor.putString(KEY_BERSIN, s);
+        editor.apply();
+    }
+
+    public void updateLelah(String s){
+        editor.putString(KEY_LELAH, s);
+        editor.apply();
+    }
+
+    public void updateDiare(String s){
+        editor.putString(KEY_DIARE, s);
+        editor.apply();
+    }
+
+    public void clear(){
+        editor.clear();
+        editor.commit();
+    }
+}
