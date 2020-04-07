@@ -27,7 +27,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textColor="#fff"
             android:textSize="30dp"
             android:textStyle="bold"
             android:text="SELF CHECKER"/>
@@ -67,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="30dp"
-            app:sdMainFabClosedBackgroundColor="@color/colorPrimaryDark"
+            app:sdMainFabClosedBackgroundColor="@color/colorPrimary"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="bottom|end"

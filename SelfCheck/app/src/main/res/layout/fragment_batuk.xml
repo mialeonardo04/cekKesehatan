@@ -38,7 +38,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pilih"
-            android:textColor="#fff"
             android:background="@color/colorPrimaryDark"
             style="@style/Material.Drawable.Ripple.Touch.Light"
             android:layout_marginRight="50dp"
