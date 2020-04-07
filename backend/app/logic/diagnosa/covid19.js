@@ -1,33 +1,24 @@
 const error = require('../../helper/errors/index')
 const criteria = require('../../helper/constant/disease')
+const util = require('../../helper/util')
 const data = require('../../database/user')
 const response = require('../../helper/response')
 const connection = require('../../database/connection')
 
 let lang = 'en'
 
-function sum(obj){
-    var sum = 0
-    for(var e in obj){
-        if(obj.hasOwnProperty(e)){
-            sum += parseFloat(obj[e])
-        }
-    }
-    return sum;
-}
-
 function arrNormalisasi(objek){
 
-    let valBatuk = objek.batuk / sum(objek)
-    let valDemam = objek.demam / sum(objek)
-    let valMeler = objek.meler / sum(objek)
-    let valTengg = objek.sakit_tenggorokan / sum(objek)
-    let valSesak = objek.sesak_nafas / sum(objek)
-    let valKepal = objek.sakit_kepala / sum(objek)
-    let valPegal = objek.pegal / sum(objek)
-    let valBersin = objek.bersin / sum(objek)
-    let valLelah = objek.lelah / sum(objek)
-    let valDiare = objek.diare / sum(objek)
+    let valBatuk = objek.batuk / util.sum(objek)
+    let valDemam = objek.demam / util.sum(objek)
+    let valMeler = objek.meler / util.sum(objek)
+    let valTengg = objek.sakit_tenggorokan / util.sum(objek)
+    let valSesak = objek.sesak_nafas / util.sum(objek)
+    let valKepal = objek.sakit_kepala / util.sum(objek)
+    let valPegal = objek.pegal / util.sum(objek)
+    let valBersin = objek.bersin / util.sum(objek)
+    let valLelah = objek.lelah / util.sum(objek)
+    let valDiare = objek.diare / util.sum(objek)
 
 
     return {
@@ -95,18 +86,18 @@ exports.postDiagnoseCov = async(req,res) =>{
             let persenCold= hitungCold.toFixed(2)              
             
             //proses input ke database
-            let con = connection.modules.connect()
+            let con = connection.connect()
             data.insert(con,_nama,_asalkota,_batuk,_demam,_meler,_sakit_tenggorokan,_sesak_nafas,_sakit_kepala,_pegal,_bersin,_lelah,_diare,persenCov,persenFlu,persenCold)
-            con.end()
+            connection.close(con)
 
             res.json(response.createResp(200,
-                {  
+                [{  
                     nama: _nama,
                     asal_kota: _asalkota,
                     covid_19: persenCov,
                     flu: persenFlu,
                     cold: persenCold,
-                }
+                }]
             ))
         } else {
             res.json(error[lang].body_request_empty)

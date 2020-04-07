@@ -1,5 +1,7 @@
 const connection = require('./connection')
 
+const tablename = 'user';
+
 module.exports = {
     insert: function(con,vNama,vAsal_kota,vBatuk,vDemam,vMeler,vSakit_tenggorokan,
         vSesak_nafas,vSakit_kepala,vPegal,vBersin,vLelah,vDiare,vPersen_covid,vPersen_flu,vPersen_cold) {
@@ -20,7 +22,7 @@ module.exports = {
             persen_flu: vPersen_flu,
             persen_cold: vPersen_cold,
         }
-        let q = con.query('INSERT INTO user SET ?', posts, function (error, results, fields) {
+        let q = con.query('INSERT INTO '+ tablename +' SET ?', posts, function (error, results, fields) {
             // if (error) throw error;
         })
         console.log(q.sql)

@@ -1,17 +1,17 @@
+require('dotenv').config();
 const mysql = require('mysql');
-
 
 const dbconfig = {
     connect: function(){
-        if(process.env.DB_HOST == '' || process.env.DB_USER == '' || process.env.DB_PASSWORD == '' || process.env.DB_NAME == ''){
+        if(process.env.DB_HOST == undefined || process.env.DB_USER == undefined || process.env.DB_PASSWORD == undefined || process.env.DB_NAME == undefined){
             console.log('DB Not found')
         }
 
         const connection = mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: '',
-            database: 'cvd-19_projects'
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD,
+            database: process.env.DB_NAME
         });
         connection.connect();
         return connection;
@@ -24,4 +24,4 @@ const dbconfig = {
         connection.end();
     }
 }
-exports.modules = dbconfig;
+module.exports = dbconfig;

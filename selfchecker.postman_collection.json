@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "2da38a15-82e8-4813-b080-7fc8a540919e",
+		"name": "selfchecker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://igaraleon.com:3000/",
+							"protocol": "http",
+							"host": [
+								"igaraleon",
+								"com"
+							],
+							"port": "3000",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "postDiagnose",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nama\" : \"Rangga\",\n\t\"asal_kota\": \"Ciamis\",\n\t\"batuk\":0,\n\t\"demam\":0,\n\t\"meler\":2,\n\t\"sakit_tenggorokan\":0,\n\t\"sesak_nafas\":0,\n\t\"sakit_kepala\":4,\n\t\"pegal\":0,\n\t\"bersin\":4,\n\t\"lelah\":4,\n\t\"diare\":0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://igaraleon.com:3000/diagnose/covid",
+							"protocol": "http",
+							"host": [
+								"igaraleon",
+								"com"
+							],
+							"port": "3000",
+							"path": [
+								"diagnose",
+								"covid"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

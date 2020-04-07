@@ -2,7 +2,7 @@ module.exports = {
     createResp: function(status, data) {
         let response = {
             status: status,
-            data: [data],
+            data: data,
         }
         return response
     }
