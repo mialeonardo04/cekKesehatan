@@ -67,7 +67,7 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
 
         btnBack.setOnClickListener(v -> {
             dataManager.clear();
-            startActivity(new Intent(this, ViewForm.class));
+            startActivity(new Intent(this, ViewFormIdentitas.class));
             finish();
         });
     }

@@ -51,6 +51,7 @@ public class ViewFormIdentitas extends AppCompatActivity implements ContractForm
             if (!etNama.getText().toString().equals("") && !etKota.getText().toString().equals("")){
                 presenter.data();
                 nextPage();
+                finish();
             } else {
                 showToast("Nama atau asal kota tidak boleh kosong");
             }
