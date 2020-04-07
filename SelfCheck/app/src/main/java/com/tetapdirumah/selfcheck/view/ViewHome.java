@@ -6,6 +6,7 @@ import androidx.core.content.res.ResourcesCompat;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import butterknife.ButterKnife;
 
 public class ViewHome extends AppCompatActivity implements ContractHome.View {
 
+    boolean doubleBack = false;
     @BindView(R.id.btnSpeedDial)
     SpeedDialView btnDial;
     @BindView(R.id.btnStart)
@@ -119,5 +121,21 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW);
         browserIntent.setData(Uri.parse("http://tetapdirumah.id"));
         startActivity(browserIntent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBack) {
+            finish();
+        }
+        this.doubleBack = true;
+        Toast.makeText(this,"Click back again to exit",Toast.LENGTH_LONG).show();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBack = false;
+            }
+        },2000);
     }
 }
