@@ -100,7 +100,6 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
             initializeDialog();
         });
 
-        log();
     }
 
     @Override
