@@ -43,6 +43,7 @@ public class ViewFormIdentitas extends AppCompatActivity implements ContractForm
         iDataManager = new DataManagerWrapper(getApplicationContext());
 
         presenter = new PresenterFormIdentitas(this, iDataManager);
+        dataManager.clear();
         etNama.setText("");
         etKota.setText("");
 
