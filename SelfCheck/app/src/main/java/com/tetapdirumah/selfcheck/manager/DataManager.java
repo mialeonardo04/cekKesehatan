@@ -25,6 +25,9 @@ public class DataManager {
     private static final String KEY_BERSIN = "bersin";
     private static final String KEY_LELAH = "lelah";
     private static final String KEY_DIARE = "diare";
+    private static final String KEY_COVID = "covid";
+    private static final String KEY_FLU = "flu";
+    private static final String KEY_COLD = "cold";
 
     public DataManager(Context _context) {
         this._context = _context;
@@ -45,7 +48,25 @@ public class DataManager {
         editor.putString(KEY_BERSIN, "0");
         editor.putString(KEY_LELAH, "0");
         editor.putString(KEY_DIARE, "0");
+        editor.putString(KEY_COVID, "0");
+        editor.putString(KEY_FLU, "0");
+        editor.putString(KEY_COLD, "");
         editor.commit();
+    }
+
+    public void updateCovid(String s){
+        editor.putString(KEY_COVID, s);
+        editor.apply();
+    }
+
+    public void updateFlu(String s){
+        editor.putString(KEY_FLU, s);
+        editor.apply();
+    }
+
+    public void updateCold(String s){
+        editor.putString(KEY_COLD, s);
+        editor.apply();
     }
 
     public void updateBatuk(String s){

@@ -12,4 +12,7 @@ public interface IDataManager {
     void updateBersin(String s);
     void updateLelah(String s);
     void updateDiare(String s);
+    void updateCovid(String s);
+    void updateFlu(String s);
+    void updateCold(String s);
 }

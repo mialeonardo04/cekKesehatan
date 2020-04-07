@@ -12,9 +12,10 @@
         android:textColor="#fff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Identitas Diri"
+        android:text="IDENTITAS DIRI"
         android:layout_centerInParent="true"
         android:textSize="30dp"
+        android:layout_marginBottom="20dp"
         android:layout_above="@id/layoutForm"/>
 
     <LinearLayout
@@ -26,6 +27,8 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/rectangle_radius_5"
@@ -37,25 +40,23 @@
             android:id="@+id/et_nama"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
             android:hint="Nama Lengkap"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:background="@drawable/rectangle_radius_5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/et_kota"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
             android:hint="Asal Kota"/>
     </com.google.android.material.textfield.TextInputLayout>
 

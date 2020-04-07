@@ -3,6 +3,7 @@ package com.tetapdirumah.selfcheck.fragments;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,9 +16,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rey.material.app.Dialog;
 import com.rey.material.widget.Button;
+import com.rey.material.widget.SnackBar;
 import com.tetapdirumah.selfcheck.R;
 import com.tetapdirumah.selfcheck.contract.ContractFragmentForm;
 import com.tetapdirumah.selfcheck.manager.DataManager;
@@ -42,10 +46,14 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
     Button btnNext;
     @BindView(R.id.batuk_btnPilih)
     Button btnPilih;
+    @BindView(R.id.fragment_tv_title)
+    TextView tvTitle;
 
     Button btn0, btn1, btn2, btn3, btn4;
-
+    Boolean next = false;
     String poin;
+
+    SharedPreferences preferences;
 
     private ContractFragmentForm.Presenter presenter;
     private DataManager dataManager;
@@ -72,16 +80,27 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
         iDataManager = new DataManagerWrapper(getActivity().getApplicationContext());
         presenter = new PresenterBatukFragment(this, iDataManager);
 
+        preferences = getActivity().getApplicationContext().getSharedPreferences("dataManager", 0);
+
         btnNext.setOnClickListener(v -> {
-            presenter.storeData();
-            ((ViewForm)getActivity()).changePage(1, true);
+            if (next){
+                presenter.updateBatuk();
+                ((ViewForm)getActivity()).changePage(1, true);
+                log();
+            } else {
+                Toast.makeText(getActivity().getApplicationContext(), "Pilih salah satu", Toast.LENGTH_SHORT).show();
+            }
         });
 
         btnBack.setVisibility(View.INVISIBLE);
 
+        tvTitle.setText("Sesering apakah anda batuk?");
+
         btnPilih.setOnClickListener(v -> {
             initializeDialog();
         });
+
+        log();
     }
 
     @Override
@@ -113,26 +132,31 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
         btn0.setOnClickListener(v -> {
             onItemSelected("0", "Tidak Pernah");
             dialog.dismiss();
+            next = true;
         });
 
         btn1.setOnClickListener(v -> {
             onItemSelected("1", "Jarang");
             dialog.dismiss();
+            next = true;
         });
 
         btn2.setOnClickListener(v -> {
             onItemSelected("2", "Kadang-kadang");
             dialog.dismiss();
+            next = true;
         });
 
         btn3.setOnClickListener(v -> {
             onItemSelected("3", "Sering");
             dialog.dismiss();
+            next = true;
         });
 
         btn4.setOnClickListener(v -> {
             onItemSelected("4", "Selalu");
             dialog.dismiss();
+            next = true;
         });
 
         dialog.show();
@@ -148,5 +172,12 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
     @Override
     public String store() {
         return poin;
+    }
+
+    @Override
+    public void log() {
+        Log.d(TAG, "Nama: " + preferences.getString("nama",""));
+        Log.d(TAG, "Kota: " + preferences.getString("kota",""));
+        Log.d(TAG, "Batuk: " + preferences.getString("batuk",""));
     }
 }

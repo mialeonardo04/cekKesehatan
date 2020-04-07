@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".view.ViewResult">
+
+    <TextView
+        android:id="@+id/result_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HASIL DIAGNOSA"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/result_tv_title"
+        android:id="@+id/card_result"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.app.progresviews.ProgressWheel
+                    android:layout_gravity="center"
+                    android:id="@+id/result_pw_covid"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    app:barWidth="5dp"
+                    app:marginBtwText="10dp"
+                    app:countText="30%"
+                    app:countTextColor="@android:color/black"
+                    app:defTextColor="@android:color/black"
+                    app:progressColor="@color/colorPrimary"
+                    app:defTextSize="10sp"
+                    app:countTextSize="12sp"
+                    app:percentage="180"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="COVID 19"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.app.progresviews.ProgressWheel
+                    android:layout_gravity="center"
+                    android:id="@+id/result_pw_flu"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_weight="2"
+                    app:barWidth="5dp"
+                    app:marginBtwText="10dp"
+                    app:countText="30%"
+                    app:countTextColor="@android:color/black"
+                    app:defTextColor="@android:color/black"
+                    app:progressColor="@color/colorPrimary"
+                    app:defTextSize="10sp"
+                    app:countTextSize="12sp"
+                    app:percentage="180"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:text="FLU"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+
+                <com.app.progresviews.ProgressWheel
+                    android:layout_gravity="center"
+                    android:id="@+id/result_pw_cold"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    app:barWidth="5dp"
+                    app:marginBtwText="10dp"
+                    app:countText="30%"
+                    app:countTextColor="@android:color/black"
+                    app:defTextColor="@android:color/black"
+                    app:progressColor="@color/colorPrimary"
+                    app:defTextSize="10sp"
+                    app:countTextSize="12sp"
+                    app:percentage="180"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="COLD"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/result_tv_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Message"
+        android:layout_below="@id/card_result"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:layout_marginTop="20dp"/>
+
+    <include
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/bottom_navigation"/>
+
+</RelativeLayout>

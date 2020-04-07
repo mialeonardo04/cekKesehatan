@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.rey.material.widget.Button;
@@ -42,11 +43,21 @@ public class ViewFormIdentitas extends AppCompatActivity implements ContractForm
         iDataManager = new DataManagerWrapper(getApplicationContext());
 
         presenter = new PresenterFormIdentitas(this, iDataManager);
+        etNama.setText("");
+        etKota.setText("");
 
         btnStart.setOnClickListener(v -> {
-            presenter.data();
-            nextPage();
+            if (!etNama.getText().toString().equals("") && !etKota.getText().toString().equals("")){
+                presenter.data();
+                nextPage();
+            } else {
+                showToast("Nama atau asal kota tidak boleh kosong");
+            }
         });
+    }
+
+    void showToast(String s){
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -54,6 +65,7 @@ public class ViewFormIdentitas extends AppCompatActivity implements ContractForm
         //store data nama, umur ke sqlite
         Intent intent = new Intent(this, ViewForm.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

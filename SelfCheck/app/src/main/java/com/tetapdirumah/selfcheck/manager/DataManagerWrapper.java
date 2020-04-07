@@ -66,4 +66,19 @@ public class DataManagerWrapper implements IDataManager {
     public void updateDiare(String s) {
         dataManager.updateDiare(s);
     }
+
+    @Override
+    public void updateCovid(String s) {
+        dataManager.updateCovid(s);
+    }
+
+    @Override
+    public void updateFlu(String s) {
+        dataManager.updateFlu(s);
+    }
+
+    @Override
+    public void updateCold(String s) {
+        dataManager.updateCold(s);
+    }
 }
