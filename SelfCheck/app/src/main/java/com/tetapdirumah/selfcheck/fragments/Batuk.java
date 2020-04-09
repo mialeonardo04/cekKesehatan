@@ -16,9 +16,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.rey.material.app.Dialog;
 import com.rey.material.widget.Button;
 import com.rey.material.widget.SnackBar;
@@ -48,6 +50,8 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
     Button btnPilih;
     @BindView(R.id.fragment_tv_title)
     TextView tvTitle;
+    @BindView(R.id.img_fragment)
+    ImageView img;
 
     Button btn0, btn1, btn2, btn3, btn4;
     Boolean next = false;
@@ -91,6 +95,12 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
                 Toast.makeText(getActivity().getApplicationContext(), "Pilih salah satu", Toast.LENGTH_SHORT).show();
             }
         });
+
+        img.setImageBitmap(null);
+        Glide.with(this)
+                .load(R.drawable.img_person)
+                .fitCenter()
+                .into(img);
 
         btnBack.setVisibility(View.INVISIBLE);
 

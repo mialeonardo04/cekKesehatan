@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.leinardi.android.speeddial.SpeedDialActionItem;
 import com.leinardi.android.speeddial.SpeedDialView;
 import com.rey.material.app.Dialog;
@@ -28,6 +31,8 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
     SpeedDialView btnDial;
     @BindView(R.id.btnStart)
     Button btnStart;
+    @BindView(R.id.img_home)
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,12 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
         setContentView(R.layout.activity_view_home);
 
         ButterKnife.bind(this);
+
+        img.setImageBitmap(null);
+        Glide.with(this)
+                .load(R.drawable.img_person)
+                .fitCenter()
+                .into(img);
 
         speedDial();
         btnStart.setOnClickListener(v -> {

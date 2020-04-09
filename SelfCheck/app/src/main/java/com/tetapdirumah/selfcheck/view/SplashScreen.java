@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.tetapdirumah.selfcheck.R;
 
 import butterknife.BindView;
@@ -18,6 +20,8 @@ public class SplashScreen extends AppCompatActivity {
     ProgressBar progressBar;
     @BindView(R.id.text_view)
     TextView textView;
+    @BindView(R.id.imageView)
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,14 @@ public class SplashScreen extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         ButterKnife.bind(this);
+
+        img.setImageBitmap(null);
+        Glide.with(this)
+                .load(R.drawable.img_person)
+                .fitCenter()
+                .into(img);
+
+
 
         progressBar.setMax(100);
         progressBar.setScaleY(3f);

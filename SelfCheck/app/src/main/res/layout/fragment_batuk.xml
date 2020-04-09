@@ -38,6 +38,7 @@
             android:layout_gravity="center"
             android:layout_width="200dp"
             android:layout_height="200dp"
+            android:id="@+id/img_fragment"
             android:src="@drawable/img_person"/>
 
         <com.rey.material.widget.Button
