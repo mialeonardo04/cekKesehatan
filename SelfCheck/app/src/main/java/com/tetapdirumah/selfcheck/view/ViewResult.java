@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.progresviews.ProgressWheel;
+import com.github.ybq.android.spinkit.SpinKitView;
 import com.rey.material.widget.Button;
 import com.tetapdirumah.selfcheck.R;
 import com.tetapdirumah.selfcheck.contract.ContractResult;
@@ -119,5 +120,15 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
     @Override
     public void showMessage(String s) {
         tvMessage.setText(s);
+    }
+
+    @Override
+    public void showLoadingAnimation() {
+
+    }
+
+    @Override
+    public void disposeLoadingAnimation() {
+
     }
 }

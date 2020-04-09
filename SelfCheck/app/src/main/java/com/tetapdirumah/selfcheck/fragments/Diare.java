@@ -104,7 +104,7 @@ public class Diare extends Fragment implements ContractFragmentForm.View {
             ((ViewForm)getActivity()).changePage(8, true);
         });
 
-        tvTitle.setText("Sesering apakah anda diare?");
+        tvTitle.setText("Diare?");
 
         btnPilih.setOnClickListener(v -> {
             initializeDialog();

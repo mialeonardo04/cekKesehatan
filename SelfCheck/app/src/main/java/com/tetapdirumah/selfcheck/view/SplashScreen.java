@@ -9,9 +9,14 @@ import android.widget.TextView;
 
 import com.tetapdirumah.selfcheck.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class SplashScreen extends AppCompatActivity {
 
+    @BindView(R.id.progress_bar)
     ProgressBar progressBar;
+    @BindView(R.id.text_view)
     TextView textView;
 
     @Override
@@ -22,8 +27,7 @@ public class SplashScreen extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        progressBar = findViewById(R.id.progress_bar);
-        textView = findViewById(R.id.text_view);
+        ButterKnife.bind(this);
 
         progressBar.setMax(100);
         progressBar.setScaleY(3f);

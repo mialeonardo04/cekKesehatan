@@ -97,7 +97,7 @@ public class Hidung extends Fragment implements ContractFragmentForm.View{
             ((ViewForm)getActivity()).changePage(1, true);
         });
 
-        tvTitle.setText("Sesering apakah anda hidung meler?");
+        tvTitle.setText("Hidung meler?");
 
         btnPilih.setOnClickListener(v -> {
             initializeDialog();

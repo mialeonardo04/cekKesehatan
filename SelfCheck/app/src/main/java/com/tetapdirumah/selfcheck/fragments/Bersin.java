@@ -95,7 +95,7 @@ public class Bersin extends Fragment implements ContractFragmentForm.View{
             ((ViewForm)getActivity()).changePage(6, true);
         });
 
-        tvTitle.setText("Sesering apakah anda bersin?");
+        tvTitle.setText("Bersin?");
 
         btnPilih.setOnClickListener(v -> {
             initializeDialog();

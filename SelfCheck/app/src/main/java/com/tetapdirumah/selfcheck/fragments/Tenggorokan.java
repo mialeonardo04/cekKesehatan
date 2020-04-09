@@ -97,7 +97,7 @@ public class Tenggorokan extends Fragment implements ContractFragmentForm.View{
             ((ViewForm)getActivity()).changePage(2, true);
         });
 
-        tvTitle.setText("Sesering apakah anda sakit tenggorokan?");
+        tvTitle.setText("Sakit tenggorokan?");
 
         btnPilih.setOnClickListener(v -> {
             initializeDialog();

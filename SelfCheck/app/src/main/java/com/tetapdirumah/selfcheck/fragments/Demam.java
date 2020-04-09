@@ -95,7 +95,7 @@ public class Demam extends Fragment implements ContractFragmentForm.View {
             ((ViewForm)getActivity()).changePage(0, true);
         });
 
-        tvTitle.setText("Sesering apakah anda demam?");
+        tvTitle.setText("Demam?");
 
         btnPilih.setOnClickListener(v -> {
             initializeDialog();

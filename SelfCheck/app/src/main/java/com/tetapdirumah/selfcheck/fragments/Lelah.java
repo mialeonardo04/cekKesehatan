@@ -95,7 +95,7 @@ public class Lelah extends Fragment implements ContractFragmentForm.View{
             ((ViewForm)getActivity()).changePage(7, true);
         });
 
-        tvTitle.setText("Sesering apakah anda merasa lelah?");
+        tvTitle.setText("Merasa lelah?");
 
         btnPilih.setOnClickListener(v -> {
             initializeDialog();

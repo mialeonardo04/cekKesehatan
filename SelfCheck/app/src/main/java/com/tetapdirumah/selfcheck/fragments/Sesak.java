@@ -96,7 +96,7 @@ public class Sesak extends Fragment implements ContractFragmentForm.View{
             ((ViewForm)getActivity()).changePage(3, true);
         });
 
-        tvTitle.setText("Sesering apakah anda sesak nafas?");
+        tvTitle.setText("Sesak nafas?");
 
         btnPilih.setOnClickListener(v -> {
             initializeDialog();

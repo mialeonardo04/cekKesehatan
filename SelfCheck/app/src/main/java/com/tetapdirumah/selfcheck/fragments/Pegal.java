@@ -96,7 +96,7 @@ public class Pegal extends Fragment implements ContractFragmentForm.View{
             ((ViewForm)getActivity()).changePage(5, true);
         });
 
-        tvTitle.setText("Sesering apakah anda badan pegal?");
+        tvTitle.setText("Badan pegal?");
 
         btnPilih.setOnClickListener(v -> {
             initializeDialog();

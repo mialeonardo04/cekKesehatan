@@ -11,5 +11,7 @@ public class ContractResult {
         void initializeData();
         FormDiagnose getDiagnose();
         void showMessage(String s);
+        void showLoadingAnimation();
+        void disposeLoadingAnimation();
     }
 }

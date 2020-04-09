@@ -96,7 +96,7 @@ public class Kepala extends Fragment implements ContractFragmentForm.View{
             ((ViewForm)getActivity()).changePage(4, true);
         });
 
-        tvTitle.setText("Sesering apakah anda sakit kepala?");
+        tvTitle.setText("Sakit kepala?");
 
         btnPilih.setOnClickListener(v -> {
             initializeDialog();

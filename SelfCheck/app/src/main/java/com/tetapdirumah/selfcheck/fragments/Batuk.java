@@ -94,7 +94,7 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
 
         btnBack.setVisibility(View.INVISIBLE);
 
-        tvTitle.setText("Sesering apakah anda batuk?");
+        tvTitle.setText("Batuk?");
 
         btnPilih.setOnClickListener(v -> {
             initializeDialog();
