@@ -53,9 +53,9 @@ public class PresenterResult implements ContractResult.Presenter {
                         if (covid < 20){
                             view.showMessage("ISOLASI MANDIRI");
                         } else if (covid < 60){
-                            view.showMessage("DIANJURKAN UNTUK PERIKSA KE DOKTER DAN ISOLASI MANDIRI");
+                            view.showMessage("DIANJURKAN UNTUK PERIKSA KE RUMAH SAKIT RUJUKAN COVID 19 DAN ISOLASI MANDIRI");
                         } else {
-                            view.showMessage("SEGERA HUBUNGI LAYANAN 119 UNTUK PENANGANAN COVID 19");
+                            view.showMessage("SEGERA HUBUNGI LAYANAN 119 UNTUK PENANGANAN COVID 19 ATAU LANGSUNG KE RUMAH SAKIT RUJUKAN COVID 19");
                         }
                     }
 

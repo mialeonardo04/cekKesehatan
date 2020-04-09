@@ -72,6 +72,9 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
 
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
     implementation 'com.zekapp.library:progreswheelview:1.1.5'
 
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
