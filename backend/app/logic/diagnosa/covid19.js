@@ -37,7 +37,8 @@ function arrNormalisasi(objek){
 
 exports.postDiagnoseCov = async(req,res) =>{
     try {
-        if (req.body.nama != undefined && req.body.asal_kota != undefined && 
+        if (req.body.nama != undefined && req.body.usia &&
+            req.body.asal_kota != undefined && req.body.kecamatan &&
             req.body.batuk != undefined && req.body.demam != undefined &&
             req.body.meler != undefined && req.body.sakit_tenggorokan != undefined &&
             req.body.sesak_nafas != undefined && req.body.sakit_kepala != undefined &&
@@ -45,7 +46,9 @@ exports.postDiagnoseCov = async(req,res) =>{
             req.body.lelah != undefined && req.body.diare != undefined) {
 
             let _nama = req.body.nama
+            let _usia = req.body.usia
             let _asalkota = req.body.asal_kota
+            let _kecamatan = req.body.kecamatan
             let _batuk = req.body.batuk
             let _demam = req.body.demam
             let _meler = req.body.meler
@@ -87,13 +90,15 @@ exports.postDiagnoseCov = async(req,res) =>{
             
             //proses input ke database
             let con = connection.connect()
-            data.insert(con,_nama,_asalkota,_batuk,_demam,_meler,_sakit_tenggorokan,_sesak_nafas,_sakit_kepala,_pegal,_bersin,_lelah,_diare,persenCov,persenFlu,persenCold)
+            data.insert(con,_nama,_usia,_asalkota,_kecamatan,_batuk,_demam,_meler,_sakit_tenggorokan,_sesak_nafas,_sakit_kepala,_pegal,_bersin,_lelah,_diare,persenCov,persenFlu,persenCold)
             connection.close(con)
 
             res.json(response.createResp(200,
                 [{  
                     nama: _nama,
+                    usia: _usia,
                     asal_kota: _asalkota,
+                    kecamatan: _kecamatan,
                     covid_19: persenCov,
                     flu: persenFlu,
                     cold: persenCold,

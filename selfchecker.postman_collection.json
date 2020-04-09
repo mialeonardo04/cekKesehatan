@@ -27,6 +27,27 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "hello Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -41,7 +62,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nama\" : \"Rangga\",\n\t\"asal_kota\": \"Ciamis\",\n\t\"batuk\":0,\n\t\"demam\":0,\n\t\"meler\":2,\n\t\"sakit_tenggorokan\":0,\n\t\"sesak_nafas\":0,\n\t\"sakit_kepala\":4,\n\t\"pegal\":0,\n\t\"bersin\":4,\n\t\"lelah\":4,\n\t\"diare\":0\n}",
+							"raw": "{\n\t\"nama\" : \"Rangga\",\n\t\"usia\": \"23\",\n\t\"asal_kota\": \"Ciamis\",\n\t\"kecamatan\": \"gatau\",\n\t\"batuk\":0,\n\t\"demam\":0,\n\t\"meler\":2,\n\t\"sakit_tenggorokan\":0,\n\t\"sesak_nafas\":0,\n\t\"sakit_kepala\":4,\n\t\"pegal\":0,\n\t\"bersin\":4,\n\t\"lelah\":4,\n\t\"diare\":0\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -54,6 +75,37 @@
 							"host": [
 								"igaraleon",
 								"com"
+							],
+							"port": "3000",
+							"path": [
+								"diagnose",
+								"covid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postDiagnose Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nama\" : \"Rangga\",\n\t\"usia\": \"23\",\n\t\"asal_kota\": \"Ciamis\",\n\t\"kecamatan\": \"gatau\",\n\t\"batuk\":0,\n\t\"demam\":0,\n\t\"meler\":2,\n\t\"sakit_tenggorokan\":0,\n\t\"sesak_nafas\":0,\n\t\"sakit_kepala\":4,\n\t\"pegal\":0,\n\t\"bersin\":4,\n\t\"lelah\":4,\n\t\"diare\":0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/diagnose/covid",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
 							],
 							"port": "3000",
 							"path": [

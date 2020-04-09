@@ -3,11 +3,13 @@ const connection = require('./connection')
 const tablename = 'user';
 
 module.exports = {
-    insert: function(con,vNama,vAsal_kota,vBatuk,vDemam,vMeler,vSakit_tenggorokan,
+    insert: function(con,vNama,vUmur,vAsal_kota,vKecamatan,vBatuk,vDemam,vMeler,vSakit_tenggorokan,
         vSesak_nafas,vSakit_kepala,vPegal,vBersin,vLelah,vDiare,vPersen_covid,vPersen_flu,vPersen_cold) {
         let posts = {
             nama: vNama,
+            usia: vUmur,
             asal_kota: vAsal_kota,
+            kecamatan: vKecamatan,
             batuk: vBatuk,
             demam: vDemam,
             meler: vMeler,
