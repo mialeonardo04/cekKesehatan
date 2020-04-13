@@ -1,12 +1,11 @@
-const connection = require('./connection')
-
-const tablename = 'user';
+const tablename = 'user_info';
 
 module.exports = {
-    insert: function(con,vNama,vUmur,vAsal_kota,vKecamatan,vBatuk,vDemam,vMeler,vSakit_tenggorokan,
-        vSesak_nafas,vSakit_kepala,vPegal,vBersin,vLelah,vDiare,vPersen_covid,vPersen_flu,vPersen_cold) {
+    insert: function(con,vNama,vNoTelp,vUmur,vAsal_kota,vKecamatan,vBatuk,vDemam,vMeler,vSakit_tenggorokan,
+        vSesak_nafas,vSakit_kepala,vPegal,vBersin,vLelah,vDiare,vPersen_covid,vPersen_flu,vPersen_cold, vKoordinat, callback) {
         let posts = {
             nama: vNama,
+            no_telp:vNoTelp,
             usia: vUmur,
             asal_kota: vAsal_kota,
             kecamatan: vKecamatan,
@@ -23,11 +22,22 @@ module.exports = {
             persen_covid: vPersen_covid,
             persen_flu: vPersen_flu,
             persen_cold: vPersen_cold,
+            koordinat: vKoordinat,
         }
-        let q = con.query('INSERT INTO '+ tablename +' SET ?', posts, function (error, results, fields) {
-            // if (error) throw error;
-        })
-        console.log(q.sql)
-    }
+    con.query('INSERT INTO '+ tablename +' SET ?', posts, callback )
+    },
+
+    update: function name(con,id,vNama,vNoTelp,vUmur,vAsal_kota,vKecamatan,vKoordinat,callback) {
+        let posts = {
+            nama: vNama,
+            no_telp:vNoTelp,
+            usia: vUmur,
+            asal_kota: vAsal_kota,
+            kecamatan: vKecamatan,
+            koordinat: vKoordinat,
+        }
+        con.query('UPDATE '+tablename+' SET ? WHERE id = ?', [posts,id], callback)
+        
+    },
 }
 
