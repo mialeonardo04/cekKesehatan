@@ -6,7 +6,14 @@
     android:layout_height="match_parent"
     android:id="@+id/layout_form"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context=".view.ViewForm">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        layout="@layout/header_layout"/>
 
     <com.tetapdirumah.selfcheck.manager.DisableSwipeManager
         android:clickable="false"

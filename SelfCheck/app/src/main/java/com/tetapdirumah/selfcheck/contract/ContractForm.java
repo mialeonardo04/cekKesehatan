@@ -3,10 +3,12 @@ package com.tetapdirumah.selfcheck.contract;
 import android.os.Bundle;
 
 public class ContractForm {
-    public interface Presenter{}
+    public interface Presenter{
+        void initialize();
+    }
 
     public interface View{
-        public void initializeFragment();
-        public void changePage(int id, boolean smoothScroll);
+        void initializeFragment();
+        void changePage(int id, boolean smoothScroll);
     }
 }

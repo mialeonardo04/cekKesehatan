@@ -5,8 +5,12 @@ import com.google.gson.annotations.SerializedName;
 public class DataResponse {
     @SerializedName("nama")
     private String _nama;
+    @SerializedName("usia")
+    private String _usia;
     @SerializedName("asal_kota")
     private String _kota;
+    @SerializedName("kecamatan")
+    private String _kecamatan;
     @SerializedName("covid_19")
     private float _covid;
     @SerializedName("flu")
@@ -20,6 +24,22 @@ public class DataResponse {
 
     public void set_nama(String _nama) {
         this._nama = _nama;
+    }
+
+    public String get_usia() {
+        return _usia;
+    }
+
+    public void set_usia(String _usia) {
+        this._usia = _usia;
+    }
+
+    public String get_kecamatan() {
+        return _kecamatan;
+    }
+
+    public void set_kecamatan(String _kecamatan) {
+        this._kecamatan = _kecamatan;
     }
 
     public String get_kota() {

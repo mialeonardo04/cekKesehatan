@@ -1,17 +1,15 @@
 package com.tetapdirumah.selfcheck.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.text.method.LinkMovementMethod;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
-import com.rey.material.widget.Button;
 import com.tetapdirumah.selfcheck.R;
 import com.tetapdirumah.selfcheck.adapter.AdapterTab;
 import com.tetapdirumah.selfcheck.contract.ContractForm;
@@ -26,6 +24,7 @@ import com.tetapdirumah.selfcheck.fragments.Pegal;
 import com.tetapdirumah.selfcheck.fragments.Sesak;
 import com.tetapdirumah.selfcheck.fragments.Tenggorokan;
 import com.tetapdirumah.selfcheck.manager.DisableSwipeManager;
+import com.tetapdirumah.selfcheck.presenter.PresenterForm;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,10 +35,14 @@ public class ViewForm extends AppCompatActivity implements ContractForm.View {
 
     private AdapterTab adapterTab;
 
+    ContractForm.Presenter presenter;
+
     @BindView(R.id.layout_vp)
     DisableSwipeManager vp;
     @BindView(R.id.tab_layout)
     TabLayout tb;
+    @BindView(R.id.tv_link)
+    TextView tvLink;
 
 
     @Override
@@ -49,8 +52,12 @@ public class ViewForm extends AppCompatActivity implements ContractForm.View {
 
         ButterKnife.bind(this);
 
+        presenter = new PresenterForm(this);
 
-        initializeFragment();
+        presenter.initialize();
+
+        tvLink.setMovementMethod(LinkMovementMethod.getInstance());
+
         vp.setOnTouchListener((View v, MotionEvent event) -> {
             return true;
         });
@@ -63,13 +70,6 @@ public class ViewForm extends AppCompatActivity implements ContractForm.View {
         }
 
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-
 
     @Override
     public void initializeFragment() {

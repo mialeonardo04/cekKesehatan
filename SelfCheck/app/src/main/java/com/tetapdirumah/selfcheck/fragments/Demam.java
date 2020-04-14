@@ -51,7 +51,7 @@ public class Demam extends Fragment implements ContractFragmentForm.View {
 
     Button btn0, btn1, btn2, btn3, btn4;
     Boolean next = false;
-    String poin;
+    String poin = "0";
 
     private ContractFragmentForm.Presenter presenter;
     private DataManager dataManager;
@@ -84,13 +84,9 @@ public class Demam extends Fragment implements ContractFragmentForm.View {
         preferences = getActivity().getApplicationContext().getSharedPreferences("dataManager", 0);
 
         btnNext.setOnClickListener(v -> {
-            if (next){
-                presenter.updateDemam();
-                ((ViewForm)getActivity()).changePage(2, true);
-                log();
-            } else {
-                Toast.makeText(getActivity().getApplicationContext(), "Pilih salah satu", Toast.LENGTH_SHORT).show();
-            }
+            presenter.updateDemam();
+            ((ViewForm)getActivity()).changePage(2, true);
+            log();
         });
 
         img.setImageBitmap(null);
@@ -183,7 +179,11 @@ public class Demam extends Fragment implements ContractFragmentForm.View {
     @Override
     public void log() {
         Log.d(TAG, "Nama: " + preferences.getString("nama",""));
+        Log.d(TAG, "Usia: " + preferences.getString("usia", ""));
         Log.d(TAG, "Kota: " + preferences.getString("kota",""));
+        Log.d(TAG, "Kecamatan: " + preferences.getString("kecamatan", ""));
+        Log.d(TAG, "Longitude: " + preferences.getString("longitude", ""));
+        Log.d(TAG, "Latitude: " + preferences.getString("latitude", ""));
         Log.d(TAG, "Batuk: " + preferences.getString("batuk",""));
         Log.d(TAG, "Demam: " + preferences.getString("demam", ""));
     }

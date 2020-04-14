@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -40,6 +41,8 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
     ProgressWheel pwFlu;
     @BindView(R.id.result_pw_cold)
     ProgressWheel pwCold;
+    @BindView(R.id.tv_link)
+    TextView tvLink;
 
     ContractResult.Presenter presenter;
 
@@ -60,6 +63,8 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
         ButterKnife.bind(this);
         pref = getSharedPreferences("dataManager", 0);
 
+        tvLink.setMovementMethod(LinkMovementMethod.getInstance());
+
         btnNext.setVisibility(View.INVISIBLE);
 
         btnBack.setText("DIAGNOSA LAGI");
@@ -68,7 +73,7 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
 
         btnBack.setOnClickListener(v -> {
             dataManager.clear();
-            startActivity(new Intent(this, ViewFormIdentitas.class));
+            startActivity(new Intent(this, ViewKonfirmasi.class));
             finish();
         });
     }
@@ -102,8 +107,13 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
     @Override
     public FormDiagnose getDiagnose() {
         FormDiagnose formDiagnose = new FormDiagnose();
+        String koordinat = pref.getString("latitude","") + ", " + pref.getString("longitude", "");
         formDiagnose.set_nama(pref.getString("nama", ""));
+        formDiagnose.set_telp(pref.getString("no_telp", ""));
+        formDiagnose.set_usia(pref.getString("usia", ""));
         formDiagnose.set_kota(pref.getString("kota", ""));
+        formDiagnose.set_kecataman(pref.getString("kecamatan", ""));
+        formDiagnose.set_koordinat(koordinat);
         formDiagnose.set_batuk(Integer.parseInt(pref.getString("batuk", "")));
         formDiagnose.set_demam(Integer.parseInt(pref.getString("demam", "")));
         formDiagnose.set_hidung(Integer.parseInt(pref.getString("hidung", "")));

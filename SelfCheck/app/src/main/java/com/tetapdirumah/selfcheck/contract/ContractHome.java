@@ -10,5 +10,9 @@ public class ContractHome {
         void call();
         void credit();
         void browser();
+        boolean checkPermission();
+        void requestPermission();
+        boolean isLocationEnabled();
+        void getLocation();
     }
 }

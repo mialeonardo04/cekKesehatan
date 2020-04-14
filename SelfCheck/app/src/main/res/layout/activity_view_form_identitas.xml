@@ -7,14 +7,20 @@
     android:background="@color/colorPrimary"
     tools:context=".view.ViewFormIdentitas">
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        layout="@layout/header_layout"/>
+
     <TextView
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="IDENTITAS DIRI"
         android:layout_centerInParent="true"
-        android:textSize="30dp"
-        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_above="@id/layoutForm"/>
 
     <LinearLayout
@@ -25,39 +31,148 @@
         android:orientation="vertical">
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/rectangle_radius_5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="2.5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/rectangle_radius_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_nama"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="12dp"
+                android:hint="Nama Lengkap (wajib)"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="2.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/rectangle_radius_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_telp"
+                android:inputType="number"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="12dp"
+                android:hint="Nomor Telepon"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="2.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/rectangle_radius_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_usia"
+                android:inputType="number"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="12dp"
+                android:hint="Usia"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="2.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/rectangle_radius_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_kota"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="12dp"
+                android:hint="Kota/Kabupaten"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="2.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/rectangle_radius_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_kecamatan"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="12dp"
+                android:hint="Kecamatan"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/et_nama"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:hint="Nama Lengkap"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/rectangle_radius_5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/rectangle_radius_5"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp">
+                <com.rey.material.widget.TextView
+                    android:gravity=""
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/et_koordinat"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textSize="12dp"
+                    android:text="koordinat lokasi"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.rey.material.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".3"
+                android:text="+"
+                android:background="@drawable/button_color_accent"
+                android:layout_marginRight="30dp"
+                android:textColor="#fff"
+                android:id="@+id/btnPlus"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/et_kota"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:hint="Asal Kota"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="**Usia, Kota, Kecamatan, dan Koordinat tidak wajib diisi"/>
 
     </LinearLayout>
 
@@ -71,5 +186,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"/>
+
 
 </RelativeLayout>

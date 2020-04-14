@@ -1,6 +1,8 @@
 package com.tetapdirumah.selfcheck.fragments;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ import com.rey.material.app.Dialog;
 import com.rey.material.widget.Button;
 import com.tetapdirumah.selfcheck.R;
 import com.tetapdirumah.selfcheck.contract.ContractFragmentForm;
+import com.tetapdirumah.selfcheck.contract.ContractSubmit;
 import com.tetapdirumah.selfcheck.manager.DataManager;
 import com.tetapdirumah.selfcheck.manager.DataManagerWrapper;
 import com.tetapdirumah.selfcheck.manager.IDataManager;
@@ -36,7 +39,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Diare extends Fragment implements ContractFragmentForm.View {
+public class Diare extends Fragment implements ContractFragmentForm.View, ContractSubmit.View {
 
     private static final String TAG = "Diare";
 
@@ -53,7 +56,7 @@ public class Diare extends Fragment implements ContractFragmentForm.View {
 
     Button btn0, btn1, btn2, btn3, btn4;
     Boolean next = false;
-    String poin;
+    String poin = "0";
 
     private ContractFragmentForm.Presenter presenter;
     private DataManager dataManager;
@@ -91,15 +94,9 @@ public class Diare extends Fragment implements ContractFragmentForm.View {
         btnNext.setText("Submit");
 
         btnNext.setOnClickListener(v -> {
-            if (next){
-                presenter.updateDiare();
-                log();
-                startActivity(intent);
-                getActivity().finish();
-            } else {
-                Toast.makeText(getActivity().getApplicationContext(), "Pilih salah satu", Toast.LENGTH_SHORT).show();
-            }
-
+            presenter.updateDiare();
+            log();
+            toActivityResult();
         });
 
         img.setImageBitmap(null);
@@ -187,7 +184,11 @@ public class Diare extends Fragment implements ContractFragmentForm.View {
     @Override
     public void log() {
         Log.d(TAG, "Nama: " + preferences.getString("nama",""));
+        Log.d(TAG, "Usia: " + preferences.getString("usia", ""));
         Log.d(TAG, "Kota: " + preferences.getString("kota",""));
+        Log.d(TAG, "Kecamatan: " + preferences.getString("kecamatan", ""));
+        Log.d(TAG, "Longitude: " + preferences.getString("longitude", ""));
+        Log.d(TAG, "Latitude: " + preferences.getString("latitude", ""));
         Log.d(TAG, "Batuk: " + preferences.getString("batuk",""));
         Log.d(TAG, "Demam: " + preferences.getString("demam", ""));
         Log.d(TAG, "Hidung: " + preferences.getString("hidung", ""));
@@ -198,6 +199,12 @@ public class Diare extends Fragment implements ContractFragmentForm.View {
         Log.d(TAG, "Bersin: " + preferences.getString("bersin", ""));
         Log.d(TAG, "Lelah: " + preferences.getString("lelah", ""));
         Log.d(TAG, "Diare: " + preferences.getString("diare", ""));
+    }
+
+    @Override
+    public void toActivityResult() {
+        startActivity(new Intent(getActivity().getApplicationContext(), ViewResult.class));
+        getActivity().finish();
     }
 
 }

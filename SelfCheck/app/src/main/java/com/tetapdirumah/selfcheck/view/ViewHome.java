@@ -1,19 +1,30 @@
 package com.tetapdirumah.selfcheck.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.leinardi.android.speeddial.SpeedDialActionItem;
 import com.leinardi.android.speeddial.SpeedDialView;
 import com.rey.material.app.Dialog;
@@ -26,6 +37,9 @@ import butterknife.ButterKnife;
 
 public class ViewHome extends AppCompatActivity implements ContractHome.View {
 
+    private static final String TAG = "ViewHome";
+
+    int PERMISSION_ID = 44;
     boolean doubleBack = false;
     @BindView(R.id.btnSpeedDial)
     SpeedDialView btnDial;
@@ -33,6 +47,8 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
     Button btnStart;
     @BindView(R.id.img_home)
     ImageView img;
+    @BindView(R.id.tv_link)
+    TextView tvLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +67,15 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
         btnStart.setOnClickListener(v -> {
             goToActivity();
         });
+
+        tvLink.setMovementMethod(LinkMovementMethod.getInstance());
+
+        getLocation();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -95,7 +120,7 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
 
     @Override
     public void goToActivity() {
-        Intent intent = new Intent(getApplicationContext(), ViewFormIdentitas.class);
+        Intent intent = new Intent(this, ViewKonfirmasi.class);
         startActivity(intent);
     }
 
@@ -132,6 +157,48 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW);
         browserIntent.setData(Uri.parse("http://tetapdirumah.id"));
         startActivity(browserIntent);
+    }
+
+    @Override
+    public boolean  checkPermission() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void requestPermission() {
+        ActivityCompat.requestPermissions(
+                this,
+                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+                PERMISSION_ID
+        );
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_ID) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Granted. Start getting the location information
+                getLocation();
+            }
+        }
+    }
+
+    @Override
+    public boolean isLocationEnabled() {
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+                LocationManager.NETWORK_PROVIDER
+        );
+    }
+
+    @Override
+    public void getLocation() {
+        requestPermission();
     }
 
     @Override

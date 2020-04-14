@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="20dp"
-            android:text="Sesering apakah anda"/>
+            android:text="Apakah saat ini mengalami "/>
 
         <TextView
             android:id="@+id/fragment_tv_title"

@@ -18,6 +18,41 @@ public class DataManagerWrapper implements IDataManager {
     }
 
     @Override
+    public void updateNama(String s) {
+        dataManager.updateNama(s);
+    }
+
+    @Override
+    public void updateTelp(String s) {
+        dataManager.updateTelp(s);
+    }
+
+    @Override
+    public void updateUsia(String s) {
+        dataManager.updateUsia(s);
+    }
+
+    @Override
+    public void updateKota(String s) {
+        dataManager.updateKota(s);
+    }
+
+    @Override
+    public void updateKecamatan(String s) {
+        dataManager.updateKecamatan(s);
+    }
+
+    @Override
+    public void updateLongitude(String s) {
+        dataManager.updateLongitude(s);
+    }
+
+    @Override
+    public void updateLatitude(String s) {
+        dataManager.updateLatitude(s);
+    }
+
+    @Override
     public void updateBatuk(String s) {
         dataManager.updateBatuk(s);
     }

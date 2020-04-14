@@ -14,7 +14,12 @@ public class DataManager {
 
     private static final String PREFER_NAME = "dataManager";
     private static final String KEY_NAMA = "nama";
+    private static final String KEY_TELP = "no_telp";
+    private static final String KEY_USIA = "usia";
     private static final String KEY_KOTA = "kota";
+    private static final String KEY_KECAMATAN = "kecamatan";
+    private static final String KEY_LONGITUDE = "longitude";
+    private static final String KEY_LATITUDE = "latitude";
     private static final String KEY_BATUK = "batuk";
     private static final String KEY_DEMAM = "demam";
     private static final String KEY_HIDUNG = "hidung";
@@ -37,7 +42,12 @@ public class DataManager {
 
     public void createData(String nama, String kota){
         editor.putString(KEY_NAMA, nama);
+        editor.putString(KEY_TELP, "0");
+        editor.putString(KEY_USIA, "0");
         editor.putString(KEY_KOTA, kota);
+        editor.putString(KEY_KECAMATAN, "0");
+        editor.putString(KEY_LONGITUDE, "0");
+        editor.putString(KEY_LATITUDE, "0");
         editor.putString(KEY_BATUK, "0");
         editor.putString(KEY_DEMAM, "0");
         editor.putString(KEY_HIDUNG, "0");
@@ -52,6 +62,41 @@ public class DataManager {
         editor.putString(KEY_FLU, "0");
         editor.putString(KEY_COLD, "");
         editor.commit();
+    }
+
+    public void updateNama(String s){
+        editor.putString(KEY_NAMA, s);
+        editor.apply();
+    }
+
+    public void updateTelp(String s){
+        editor.putString(KEY_TELP, s);
+        editor.apply();
+    }
+
+    public void updateUsia(String s){
+        editor.putString(KEY_USIA, s);
+        editor.apply();
+    }
+
+    public void updateKota(String s){
+        editor.putString(KEY_KOTA, s);
+        editor.apply();
+    }
+
+    public void updateKecamatan(String s){
+        editor.putString(KEY_KECAMATAN, s);
+        editor.apply();
+    }
+
+    public void updateLongitude(String s){
+        editor.putString(KEY_LONGITUDE, s);
+        editor.apply();
+    }
+
+    public void updateLatitude(String s){
+        editor.putString(KEY_LATITUDE, s);
+        editor.apply();
     }
 
     public void updateCovid(String s){

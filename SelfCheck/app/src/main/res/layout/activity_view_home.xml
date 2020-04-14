@@ -8,6 +8,12 @@
     tools:context=".view.ViewHome"
     android:id="@+id/consLayout">
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        layout="@layout/header_layout"/>
+
     <ImageView
         android:layout_above="@+id/layout_title"
         android:id="@+id/img_home"
@@ -27,9 +33,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="30dp"
+            android:textSize="26dp"
             android:textStyle="bold"
-            android:text="SELF CHECKER"/>
+            android:text="DIAGNOSA MANDIRI"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +58,7 @@
         android:layout_marginBottom="50dp"
         android:background="@drawable/button_color_accent"
         android:padding="20dp"
-        android:text="Start Assessment"
+        android:text="Mulai Asesmen"
         android:textColor="#fff" />
 
     <LinearLayout

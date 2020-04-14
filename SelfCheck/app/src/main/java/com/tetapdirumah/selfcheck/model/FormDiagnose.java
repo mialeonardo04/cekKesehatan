@@ -5,8 +5,16 @@ import com.google.gson.annotations.SerializedName;
 public class FormDiagnose {
     @SerializedName("nama")
     private String _nama;
+    @SerializedName("no_telp")
+    private String _telp;
+    @SerializedName("usia")
+    private String _usia;
     @SerializedName("asal_kota")
     private String _kota;
+    @SerializedName("kecamatan")
+    private String _kecataman;
+    @SerializedName("koordinat")
+    private String _koordinat;
     @SerializedName("batuk")
     private int _batuk;
     @SerializedName("demam")
@@ -34,6 +42,38 @@ public class FormDiagnose {
 
     public void set_nama(String _nama) {
         this._nama = _nama;
+    }
+
+    public String get_telp() {
+        return _telp;
+    }
+
+    public void set_telp(String _telp) {
+        this._telp = _telp;
+    }
+
+    public String get_usia() {
+        return _usia;
+    }
+
+    public void set_usia(String _usia) {
+        this._usia = _usia;
+    }
+
+    public String get_kecataman() {
+        return _kecataman;
+    }
+
+    public void set_kecataman(String _kecataman) {
+        this._kecataman = _kecataman;
+    }
+
+    public String get_koordinat() {
+        return _koordinat;
+    }
+
+    public void set_koordinat(String _koordinat) {
+        this._koordinat = _koordinat;
     }
 
     public String get_kota() {
