@@ -70,7 +70,9 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
 
         tvLink.setMovementMethod(LinkMovementMethod.getInstance());
 
-        getLocation();
+        //getLocation();
+
+        requestPermission();
     }
 
     @Override
@@ -149,6 +151,7 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
         dialog.contentMargin(20, 20, 20, 20);
 
         dialog.show();
+
     }
 
     @Override
@@ -183,7 +186,7 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
         if (requestCode == PERMISSION_ID) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Granted. Start getting the location information
-                getLocation();
+                //getLocation();
             }
         }
     }
