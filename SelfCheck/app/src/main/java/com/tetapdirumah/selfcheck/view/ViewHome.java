@@ -85,16 +85,25 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
         btnDial.addActionItem(
                new SpeedDialActionItem.Builder(R.id.fab_phone,R.drawable.ic_phone_black_24dp)
                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, getTheme()))
+                       .setLabel("119")
                        .create()
         );
         btnDial.addActionItem(
                 new SpeedDialActionItem.Builder(R.id.fab_browser,R.drawable.ic_public_black_24dp)
                         .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, getTheme()))
+                        .setLabel("tetapdirumah.id")
+                        .create()
+        );
+        btnDial.addActionItem(
+                new SpeedDialActionItem.Builder(R.id.fab_history, R.drawable.ic_history_black_24dp)
+                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, getTheme()))
+                        .setLabel("Riwayat")
                         .create()
         );
         btnDial.addActionItem(
                 new SpeedDialActionItem.Builder(R.id.fab_credit,R.drawable.ic_settings_black_48dp)
                         .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, getTheme()))
+                        .setLabel("credit")
                         .create()
         );
 
@@ -108,6 +117,10 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
                         break;
                     case R.id.fab_browser:
                         browser();
+                        btnDial.close();
+                        break;
+                    case R.id.fab_history:
+                        goToRiwayat();
                         btnDial.close();
                         break;
                     case R.id.fab_credit:
@@ -124,6 +137,10 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
     public void goToActivity() {
         Intent intent = new Intent(this, ViewKonfirmasi.class);
         startActivity(intent);
+    }
+
+    void goToRiwayat(){
+        startActivity(new Intent(this, ViewRiwayat.class));
     }
 
     @Override

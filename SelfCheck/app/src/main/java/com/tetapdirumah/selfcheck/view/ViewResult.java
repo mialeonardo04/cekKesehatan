@@ -7,20 +7,27 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.progresviews.ProgressWheel;
 import com.github.ybq.android.spinkit.SpinKitView;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.rey.material.widget.Button;
 import com.tetapdirumah.selfcheck.R;
 import com.tetapdirumah.selfcheck.contract.ContractResult;
 import com.tetapdirumah.selfcheck.manager.DataManager;
 import com.tetapdirumah.selfcheck.manager.DataManagerWrapper;
 import com.tetapdirumah.selfcheck.manager.IDataManager;
+import com.tetapdirumah.selfcheck.manager.LoadingManager;
 import com.tetapdirumah.selfcheck.model.FormDiagnose;
 import com.tetapdirumah.selfcheck.presenter.PresenterResult;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,13 +50,24 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
     ProgressWheel pwCold;
     @BindView(R.id.tv_link)
     TextView tvLink;
+    @BindView(R.id.btn119)
+    Button btn119;
+    @BindView(R.id.sp_loading)
+    ProgressBar spLoading;
 
     ContractResult.Presenter presenter;
+
+    LoadingManager loadingManager;
 
     DataManager dataManager;
     IDataManager iDataManager;
 
+    String covid, cold, flu;
+
     SharedPreferences pref;
+
+
+    Animation animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,22 +76,33 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
 
         dataManager = new DataManager(this);
         iDataManager = new DataManagerWrapper(this);
-        presenter = new PresenterResult(iDataManager, this);
+        presenter = new PresenterResult(this, iDataManager, this);
 
         ButterKnife.bind(this);
         pref = getSharedPreferences("dataManager", 0);
 
         tvLink.setMovementMethod(LinkMovementMethod.getInstance());
 
-        btnNext.setVisibility(View.INVISIBLE);
+        btn119.setVisibility(View.INVISIBLE);
+
+        Sprite doubleBounce = new DoubleBounce();
+        spLoading.setIndeterminateDrawable(doubleBounce);
+
+        btnNext.setText("BAGIKAN");
+
+        tvMessage.setVisibility(View.INVISIBLE);
+
+        btnNext.setOnClickListener(v -> {
+            shareTo();
+        });
+
+        loadingManager = new LoadingManager(this, spLoading, 0f, 100f);
 
         btnBack.setText("DIAGNOSA LAGI");
 
-        presenter.postData();
-
         btnBack.setOnClickListener(v -> {
             dataManager.clear();
-            startActivity(new Intent(this, ViewKonfirmasi.class));
+            onBackPressed();
             finish();
         });
     }
@@ -81,15 +110,32 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
     @Override
     protected void onResume() {
         super.onResume();
-//        initializeData();
+        showLoadingAnimation();
+    }
+
+    void shareTo(){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        String shareBody = "Hasil Diagnosa";
+        String stringCovid = "Covid-19 : " + covid + "%";
+        String stringFlu = "Flu : " + flu + "%";
+        String stringCold = "Cold : " + cold + "%";
+        String text = "Hasil diagnosa yang telah dilakukan" +
+                "\n" + stringCovid +
+                "\n" + stringFlu +
+                "\n" + stringCold +
+                "\nUnduh aplikasi di link: ";
+        intent.putExtra(Intent.EXTRA_SUBJECT, shareBody);
+        intent.putExtra(Intent.EXTRA_TEXT, text);
+        startActivity(Intent.createChooser(intent, "Share using"));
     }
 
     @Override
     public void initializeData() {
 
-        String covid = pref.getString("covid", "");
-        String flu = pref.getString("flu","");
-        String cold = pref.getString("cold","");
+        covid = pref.getString("covid", "");
+        flu = pref.getString("flu","");
+        cold = pref.getString("cold","");
 
         float percCovid = (Float.parseFloat(covid) * 360) / 100;
         float percFlu = (Float.parseFloat(flu) * 360) / 100;
@@ -129,16 +175,37 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
 
     @Override
     public void showMessage(String s) {
+        tvMessage.setVisibility(View.VISIBLE);
         tvMessage.setText(s);
     }
 
     @Override
-    public void showLoadingAnimation() {
+    public void btnShow() {
+        btn119.setVisibility(View.VISIBLE);
+    }
 
+    @Override
+    public void showLoadingAnimation() {
+        animation = new Animation() {
+            @Override
+            protected void applyTransformation(float interpolatedTime, Transformation t) {
+                super.applyTransformation(interpolatedTime, t);
+                float value = 0f + (100f - 0f) * interpolatedTime;
+                spLoading.setProgress((int)value);
+
+                if (value == 100f){
+                    spLoading.setVisibility(View.INVISIBLE);
+                    presenter.postData();
+                }
+            }
+        };
+        animation.setDuration(1000);
+        spLoading.setAnimation(animation);
     }
 
     @Override
     public void disposeLoadingAnimation() {
-
+        spLoading.setVisibility(View.INVISIBLE);
     }
+
 }

@@ -14,6 +14,15 @@
         layout="@layout/header_layout"/>
 
 
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/sp_loading"
+        style="@style/SpinKitView.Large.Circle"
+        app:SpinKit_Color="@color/colorPrimaryDark"
+        />
+
     <TextView
         android:id="@+id/result_tv_title"
         android:layout_width="wrap_content"
@@ -52,13 +61,13 @@
                     android:layout_height="65dp"
                     app:barWidth="5dp"
                     app:marginBtwText="10dp"
-                    app:countText="30%"
+                    app:countText="0%"
                     app:countTextColor="@android:color/black"
                     app:defTextColor="@android:color/black"
                     app:progressColor="@color/colorPrimary"
                     app:defTextSize="10sp"
                     app:countTextSize="12sp"
-                    app:percentage="180"/>
+                    app:percentage="0"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,13 +92,13 @@
                     android:layout_weight="2"
                     app:barWidth="5dp"
                     app:marginBtwText="10dp"
-                    app:countText="30%"
+                    app:countText="0%"
                     app:countTextColor="@android:color/black"
                     app:defTextColor="@android:color/black"
                     app:progressColor="@color/colorPrimary"
                     app:defTextSize="10sp"
                     app:countTextSize="12sp"
-                    app:percentage="180"/>
+                    app:percentage="0"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -116,13 +125,13 @@
                     android:layout_height="65dp"
                     app:barWidth="5dp"
                     app:marginBtwText="10dp"
-                    app:countText="30%"
+                    app:countText="0%"
                     app:countTextColor="@android:color/black"
                     app:defTextColor="@android:color/black"
                     app:progressColor="@color/colorPrimary"
                     app:defTextSize="10sp"
                     app:countTextSize="12sp"
-                    app:percentage="180"/>
+                    app:percentage="0"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -141,12 +150,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Message"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_below="@id/card_result"
         android:textAlignment="center"
         android:textSize="18dp"
         android:layout_marginTop="20dp"/>
 
+    <com.rey.material.widget.Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layout_btm"
+        android:layout_centerInParent="true"
+        android:background="#ff0000"
+        android:textColor="#fff"
+        android:id="@+id/btn119"
+        android:text="119"
+        android:layout_marginBottom="30dp"/>
+
+
     <include
+        android:id="@+id/layout_btm"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

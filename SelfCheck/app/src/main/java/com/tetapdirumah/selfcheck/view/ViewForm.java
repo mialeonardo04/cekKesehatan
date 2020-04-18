@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
+import com.rey.material.widget.Button;
 import com.tetapdirumah.selfcheck.R;
 import com.tetapdirumah.selfcheck.adapter.AdapterTab;
 import com.tetapdirumah.selfcheck.contract.ContractForm;
@@ -53,6 +54,7 @@ public class ViewForm extends AppCompatActivity implements ContractForm.View {
         ButterKnife.bind(this);
 
         presenter = new PresenterForm(this);
+
 
         presenter.initialize();
 
