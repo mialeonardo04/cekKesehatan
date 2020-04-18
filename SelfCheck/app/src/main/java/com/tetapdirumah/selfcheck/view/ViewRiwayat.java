@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
+import android.widget.TextView;
 
 import com.tetapdirumah.selfcheck.R;
 import com.tetapdirumah.selfcheck.adapter.AdapterRiwayatData;
@@ -23,6 +25,8 @@ public class ViewRiwayat extends AppCompatActivity implements ContractRiwayat.Vi
 
     @BindView(R.id.rc_layout)
     RecyclerView rvLayout;
+    @BindView(R.id.tv_link)
+    TextView tvLink;
 
     private AdapterRiwayatData adapter;
     private ContractRiwayat.Presenter presenter;
@@ -36,6 +40,8 @@ public class ViewRiwayat extends AppCompatActivity implements ContractRiwayat.Vi
 
         ButterKnife.bind(this);
         hData = new HandlerDiagnosa(this);
+
+        tvLink.setMovementMethod(LinkMovementMethod.getInstance());
 
         presenter = new PresenterRiwayat(this, hData);
     }
