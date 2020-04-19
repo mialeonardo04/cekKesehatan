@@ -129,25 +129,25 @@ public class Tenggorokan extends Fragment implements ContractFragmentForm.View{
         btn4 = (Button) view.findViewById(R.id.dialog_btn4);
 
         btn0.setOnClickListener(v -> {
-            onItemSelected("0", "Tidak Pernah");
+            onItemSelected("0", "Tidak");
             dialog.dismiss();
             next = true;
         });
 
         btn1.setOnClickListener(v -> {
-            onItemSelected("1", "Jarang");
+            onItemSelected("1", "Sedikit");
             dialog.dismiss();
             next = true;
         });
 
         btn2.setOnClickListener(v -> {
-            onItemSelected("2", "Kadang-kadang");
+            onItemSelected("2", "Cukup");
             dialog.dismiss();
             next = true;
         });
 
         btn3.setOnClickListener(v -> {
-            onItemSelected("3", "Sering");
+            onItemSelected("3", "Sedang");
             dialog.dismiss();
             next = true;
         });

@@ -135,23 +135,25 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
         btn4 = (Button) view.findViewById(R.id.dialog_btn4);
 
         btn0.setOnClickListener(v -> {
-            onItemSelected("0", "Tidak Pernah");
+            onItemSelected("0", "Tidak");
             dialog.dismiss();
             next = true;
         });
 
         btn1.setOnClickListener(v -> {
-            onItemSelected("1", "Jarang");
+            onItemSelected("1", "Sedikit");
             dialog.dismiss();
             next = true;
         });
 
+        btn2.setText("Kadang");
         btn2.setOnClickListener(v -> {
-            onItemSelected("2", "Kadang-kadang");
+            onItemSelected("2", "Kadang");
             dialog.dismiss();
             next = true;
         });
 
+        btn3.setText("Sering");
         btn3.setOnClickListener(v -> {
             onItemSelected("3", "Sering");
             dialog.dismiss();

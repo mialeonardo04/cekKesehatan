@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
@@ -26,6 +27,8 @@ import com.tetapdirumah.selfcheck.manager.IDataManager;
 import com.tetapdirumah.selfcheck.manager.LoadingManager;
 import com.tetapdirumah.selfcheck.model.FormDiagnose;
 import com.tetapdirumah.selfcheck.presenter.PresenterResult;
+import com.tetapdirumah.selfcheck.sqlite.DataDiagnosa;
+import com.tetapdirumah.selfcheck.sqlite.HandlerDiagnosa;
 
 import java.util.ArrayList;
 
@@ -57,6 +60,8 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
 
     ContractResult.Presenter presenter;
 
+    HandlerDiagnosa db;
+
     LoadingManager loadingManager;
 
     DataManager dataManager;
@@ -83,6 +88,8 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
 
         tvLink.setMovementMethod(LinkMovementMethod.getInstance());
 
+        db = new HandlerDiagnosa(this);
+
         btn119.setVisibility(View.INVISIBLE);
 
         Sprite doubleBounce = new DoubleBounce();
@@ -105,12 +112,13 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
             onBackPressed();
             finish();
         });
+
+        presenter.postData();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        showLoadingAnimation();
     }
 
     void shareTo(){
@@ -195,7 +203,6 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
 
                 if (value == 100f){
                     spLoading.setVisibility(View.INVISIBLE);
-                    presenter.postData();
                 }
             }
         };
@@ -206,6 +213,20 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
     @Override
     public void disposeLoadingAnimation() {
         spLoading.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void saveData(String nama, String covid, String flu, String cold, String date_created) {
+        DataDiagnosa dataDiagnosa = new DataDiagnosa();
+        dataDiagnosa.set_nama(nama);
+        dataDiagnosa.set_covid(covid);
+        dataDiagnosa.set_flu(flu);
+        dataDiagnosa.set_cold(cold);
+        dataDiagnosa.set_date_created(date_created);
+
+        db.addData(dataDiagnosa);
+
+        Log.d(TAG, "saveData: data saved");
     }
 
 }

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.tetapdirumah.selfcheck.R;
@@ -22,6 +23,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ViewRiwayat extends AppCompatActivity implements ContractRiwayat.View {
+
+    private static final String TAG = "ViewRiwayat";
 
     @BindView(R.id.rc_layout)
     RecyclerView rvLayout;
@@ -44,6 +47,8 @@ public class ViewRiwayat extends AppCompatActivity implements ContractRiwayat.Vi
         tvLink.setMovementMethod(LinkMovementMethod.getInstance());
 
         presenter = new PresenterRiwayat(this, hData);
+
+        Log.d(TAG, "jumlah riwayat: " + hData.countCart());
     }
 
     @Override
@@ -62,4 +67,5 @@ public class ViewRiwayat extends AppCompatActivity implements ContractRiwayat.Vi
         rvLayout.setItemAnimator(new DefaultItemAnimator());
         rvLayout.setAdapter(adapter);
     }
+
 }

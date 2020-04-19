@@ -14,5 +14,6 @@ public class ContractResult {
         void btnShow();
         void showLoadingAnimation();
         void disposeLoadingAnimation();
+        void saveData(String nama, String covid, String flu, String cold, String date_created);
     }
 }

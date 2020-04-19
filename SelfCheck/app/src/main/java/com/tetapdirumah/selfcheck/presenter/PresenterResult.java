@@ -38,6 +38,7 @@ public class PresenterResult implements ContractResult.Presenter {
 
     @Override
     public void postData() {
+        view.showLoadingAnimation();
         FormDiagnose diagnose = view.getDiagnose();
         mApi = ApiUtils.getAPIService();
         mApi.diagnose(diagnose)
@@ -67,9 +68,7 @@ public class PresenterResult implements ContractResult.Presenter {
                             view.btnShow();
                             view.showMessage("SEGERA HUBUNGI LAYANAN 119 UNTUK PENANGANAN COVID 19 ATAU LANGSUNG KE RUMAH SAKIT RUJUKAN COVID 19");
                         }
-                        DataDiagnosa dataDiagnosa = new DataDiagnosa(nama, String.valueOf(covid),
-                                String.valueOf(flu), String.valueOf(cold), String.valueOf(new Date().getTime()));
-                        handlerDiagnosa.addData(dataDiagnosa);
+                        view.saveData(nama, String.valueOf(covid), String.valueOf(flu), String.valueOf(cold), String.valueOf(new Date().getTime()));
 //                        view.disposeLoadingAnimation();
                     }
 

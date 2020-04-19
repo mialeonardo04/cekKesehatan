@@ -12,28 +12,28 @@
         android:id="@+id/dialog_btn0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tidak Pernah"/>
+        android:text="Tidak"/>
     <com.rey.material.widget.Button
         android:layout_marginBottom="5dp"
         android:background="@color/colorPrimaryDark"
         android:id="@+id/dialog_btn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Jarang"/>
+        android:text="Sedikit"/>
     <com.rey.material.widget.Button
         android:layout_marginBottom="5dp"
         android:background="@color/colorPrimaryDark"
         android:id="@+id/dialog_btn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kadang-kadang"/>
+        android:text="Cukup"/>
     <com.rey.material.widget.Button
         android:layout_marginBottom="5dp"
         android:background="@color/colorPrimaryDark"
         android:id="@+id/dialog_btn3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sering"/>
+        android:text="Sedang"/>
     <com.rey.material.widget.Button
         android:background="@color/colorPrimaryDark"
         android:id="@+id/dialog_btn4"
