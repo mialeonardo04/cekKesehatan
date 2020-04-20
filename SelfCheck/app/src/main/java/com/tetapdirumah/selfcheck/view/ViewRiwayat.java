@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
+import com.rey.material.widget.Button;
 import com.tetapdirumah.selfcheck.R;
 import com.tetapdirumah.selfcheck.adapter.AdapterRiwayatData;
 import com.tetapdirumah.selfcheck.contract.ContractRiwayat;
@@ -30,6 +32,10 @@ public class ViewRiwayat extends AppCompatActivity implements ContractRiwayat.Vi
     RecyclerView rvLayout;
     @BindView(R.id.tv_link)
     TextView tvLink;
+    @BindView(R.id.btnBack)
+    Button btnBack;
+    @BindView(R.id.btnNext)
+    Button btnNext;
 
     private AdapterRiwayatData adapter;
     private ContractRiwayat.Presenter presenter;
@@ -45,6 +51,13 @@ public class ViewRiwayat extends AppCompatActivity implements ContractRiwayat.Vi
         hData = new HandlerDiagnosa(this);
 
         tvLink.setMovementMethod(LinkMovementMethod.getInstance());
+
+        btnNext.setVisibility(View.INVISIBLE);
+
+        btnBack.setText("Kembali");
+        btnBack.setOnClickListener(v -> {
+            onBackPressed();
+        });
 
         presenter = new PresenterRiwayat(this, hData);
 

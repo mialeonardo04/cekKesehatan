@@ -57,6 +57,8 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
     Button btn119;
     @BindView(R.id.sp_loading)
     ProgressBar spLoading;
+    @BindView(R.id.btnShare)
+    Button btnShare;
 
     ContractResult.Presenter presenter;
 
@@ -71,6 +73,7 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
 
     SharedPreferences pref;
 
+    ViewKonfirmasi viewKonfirmasi;
 
     Animation animation;
 
@@ -95,11 +98,16 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
         Sprite doubleBounce = new DoubleBounce();
         spLoading.setIndeterminateDrawable(doubleBounce);
 
-        btnNext.setText("BAGIKAN");
+        btnNext.setText("KEMBALI KE BERANDA");
 
         tvMessage.setVisibility(View.INVISIBLE);
 
         btnNext.setOnClickListener(v -> {
+            ViewKonfirmasi.getInstace().finish();
+            onBackPressed();
+        });
+
+        btnShare.setOnClickListener(v -> {
             shareTo();
         });
 
@@ -132,7 +140,7 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
                 "\n" + stringCovid +
                 "\n" + stringFlu +
                 "\n" + stringCold +
-                "\nUnduh aplikasi di link: ";
+                "\nUnduh aplikasi di link: https://tiny.cc/selfCheckerPTIKUNS";
         intent.putExtra(Intent.EXTRA_SUBJECT, shareBody);
         intent.putExtra(Intent.EXTRA_TEXT, text);
         startActivity(Intent.createChooser(intent, "Share using"));

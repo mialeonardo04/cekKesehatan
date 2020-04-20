@@ -66,9 +66,9 @@ public class AdapterRiwayatData extends RecyclerView.Adapter<AdapterRiwayatData.
 
         public void setData(DataDiagnosa data){
             tvNama.setText(data.get_nama());
-            setProgressbar(data.get_covid(), pwCovid);
-            setProgressbar(data.get_flu(), pwFlu);
-            setProgressbar(data.get_cold(), pwCold);
+            setProgressbar(data.get_covid().toString(), pwCovid);
+            setProgressbar(data.get_flu().toString(), pwFlu);
+            setProgressbar(data.get_cold().toString(), pwCold);
         }
 
         public void setProgressbar(String s, ProgressWheel wheel){

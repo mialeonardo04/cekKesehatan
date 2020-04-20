@@ -18,6 +18,8 @@ import butterknife.ButterKnife;
 
 public class ViewKonfirmasi extends AppCompatActivity {
 
+    static ViewKonfirmasi viewKonfirmasi;
+
     @BindView(R.id.ck_setuju)
     CheckBox ck;
     @BindView(R.id.btnMulai)
@@ -31,6 +33,8 @@ public class ViewKonfirmasi extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_konfirmasi);
+
+        viewKonfirmasi = this;
 
         ButterKnife.bind(this);
 
@@ -46,5 +50,9 @@ public class ViewKonfirmasi extends AppCompatActivity {
             }
             iDataManager.createData("guest", "0");
         });
+    }
+
+    public static ViewKonfirmasi getInstace(){
+        return viewKonfirmasi;
     }
 }

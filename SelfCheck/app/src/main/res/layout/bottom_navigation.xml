@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:id="@+id/btnBack"
-        android:text="Previous"
+        android:text="Sebelumnya"
         android:layout_marginRight="2dp"
         android:layout_height="wrap_content"/>
 
@@ -20,7 +20,7 @@
         android:layout_weight="1"
         android:id="@+id/btnNext"
         android:layout_marginLeft="2dp"
-        android:text="Next"
+        android:text="Selanjutnya"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>

@@ -85,7 +85,7 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
         btnDial.addActionItem(
                new SpeedDialActionItem.Builder(R.id.fab_phone,R.drawable.ic_phone_black_24dp)
                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, getTheme()))
-                       .setLabel("119")
+                       .setLabel("Contact Center")
                        .create()
         );
         btnDial.addActionItem(
@@ -146,9 +146,42 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
     @Override
     public void call() {
         // call 119
-        Intent callIntent = new Intent(Intent.ACTION_DIAL);
-        callIntent.setData(Uri.parse("tel: 119"));
-        startActivity(callIntent);
+        Dialog dialog = new Dialog(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.call_center_layout, null);
+        dialog.setContentView(view);
+        dialog.setCancelable(true);
+        dialog.closeOptionsMenu();
+        dialog.contentMargin(20);
+        dialog.show();
+
+        Button btn119 = view.findViewById(R.id.btnNasional);
+        Button btnJak = view.findViewById(R.id.btnJakarta);
+        Button btnJbr = view.findViewById(R.id.btnJabar);
+        Button btnJtg = view.findViewById(R.id.btnJateng);
+        Button btnJtm = view.findViewById(R.id.btnJatim);
+        Button btnYgy = view.findViewById(R.id.btnYogya);
+        Button btnBtn = view.findViewById(R.id.btnBanten);
+
+        callWilayah("tel: 119", btn119);
+        callWilayah("tel: 112", btnJak);
+        callWilayah("tel: 08112093306", btnJbr);
+        callWilayah("tel: 0243580713", btnJtg);
+        callWilayah("tel: 1500117", btnJtm);
+        callWilayah("tel: 0274555585", btnYgy);
+        callWilayah("tel: 085215779659", btnBtn);
+
+
+        //tel: 119
+
+    }
+
+    void callWilayah(String s, Button button){
+        button.setOnClickListener(v -> {
+            Intent callIntent = new Intent(Intent.ACTION_DIAL);
+            callIntent.setData(Uri.parse(s));
+            startActivity(callIntent);
+        });
     }
 
     @Override

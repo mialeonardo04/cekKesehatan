@@ -157,16 +157,40 @@
         android:textSize="18dp"
         android:layout_marginTop="20dp"/>
 
-    <com.rey.material.widget.Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/layout_btm"
-        android:layout_centerInParent="true"
-        android:background="#ff0000"
-        android:textColor="#fff"
-        android:id="@+id/btn119"
-        android:text="119"
-        android:layout_marginBottom="30dp"/>
+        android:layout_margin="30dp"
+        android:layout_above="@id/layout_btm"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.rey.material.widget.Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/layout_btm"
+            android:layout_centerInParent="true"
+            android:background="#ff0000"
+            android:textColor="#fff"
+            android:id="@+id/btn119"
+            android:layout_marginRight="10dp"
+            android:text="119" />
+
+        <com.rey.material.widget.Button
+            android:id="@+id/btnShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/layout_btm"
+            android:layout_centerInParent="true"
+            android:text="BAGIKAN"
+            android:layout_toRightOf="@id/btn119"
+            android:textColor="#fff"
+            android:background="@color/colorAccent"
+            />
+
+    </LinearLayout>
+
+
 
 
     <include
