@@ -66,8 +66,12 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
 
         speedDial();
         btnStart.setOnClickListener(v -> {
-            iDataManager.createData(etNama.getText().toString(), "0");
-            goToActivity();
+            if (etNama.getText().toString().equals("")){
+                Toast.makeText(this, "Nama wajib diisi", Toast.LENGTH_SHORT).show();
+            } else {
+                iDataManager.createData(etNama.getText().toString(), "0");
+                goToActivity();
+            }
         });
 
         tvLink.setMovementMethod(LinkMovementMethod.getInstance());
