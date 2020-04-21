@@ -57,6 +57,7 @@ public class ViewRiwayat extends AppCompatActivity implements ContractRiwayat.Vi
         btnBack.setText("Kembali");
         btnBack.setOnClickListener(v -> {
             onBackPressed();
+            finish();
         });
 
         presenter = new PresenterRiwayat(this, hData);
