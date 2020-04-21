@@ -2,12 +2,14 @@ package com.tetapdirumah.selfcheck.presenter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.tetapdirumah.selfcheck.contract.ContractResult;
 import com.tetapdirumah.selfcheck.manager.IDataManager;
 import com.tetapdirumah.selfcheck.model.ApiResponse;
 import com.tetapdirumah.selfcheck.model.DataResponse;
 import com.tetapdirumah.selfcheck.model.FormDiagnose;
+import com.tetapdirumah.selfcheck.model.FormUpdate;
 import com.tetapdirumah.selfcheck.rest.ApiInterface;
 import com.tetapdirumah.selfcheck.rest.ApiUtils;
 import com.tetapdirumah.selfcheck.sqlite.DataDiagnosa;
@@ -20,6 +22,8 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class PresenterResult implements ContractResult.Presenter {
 
@@ -66,9 +70,9 @@ public class PresenterResult implements ContractResult.Presenter {
                             view.showMessage("WASPADA! DIANJURKAN UNTUK PERIKSAKAN DIRI KE RUMAH SAKIT RUJUKAN COVID 19 DAN ISOLASI MANDIRI");
                         } else {
                             view.btnShow();
-                            view.showMessage("SEGERA HUBUNGI LAYANAN 119 UNTUK PENANGANAN COVID 19 ATAU LANGSUNG KE RUMAH SAKIT RUJUKAN COVID 19");
+                            view.showMessage("SEGERA HUBUNGI LAYANAN FASILITAS KESEHATAN DI DAERAH ANDA UNTUK PENANGANAN COVID 19 ATAU LANGSUNG KE RUMAH SAKIT RUJUKAN COVID 19");
                         }
-                        view.saveData(nama, String.valueOf(covid), String.valueOf(flu), String.valueOf(cold), String.valueOf(new Date().getTime()));
+                        view.setId(listApiResponse.get_item().get(0).get_id());
 //                        view.disposeLoadingAnimation();
                     }
 
@@ -80,6 +84,36 @@ public class PresenterResult implements ContractResult.Presenter {
                     @Override
                     public void onComplete() {
 //                        view.disposeLoadingAnimation();
+                    }
+                });
+    }
+
+    @Override
+    public void updateData() {
+        FormUpdate formUpdate = view.formUpadate();
+        mApi = ApiUtils.getAPIService();
+        mApi.update(view.id(), formUpdate)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<DataResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(DataResponse dataResponse) {
+                        view.goToHistory();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d(TAG, "onError: " + e.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
     }

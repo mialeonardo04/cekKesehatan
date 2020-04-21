@@ -12,6 +12,7 @@
         android:id="@+id/dialog_btn0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Material.Drawable.Ripple.Touch.Light"
         android:text="Tidak"/>
     <com.rey.material.widget.Button
         android:layout_marginBottom="5dp"
@@ -19,6 +20,7 @@
         android:id="@+id/dialog_btn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Material.Drawable.Ripple.Touch.Light"
         android:text="Sedikit"/>
     <com.rey.material.widget.Button
         android:layout_marginBottom="5dp"
@@ -26,6 +28,7 @@
         android:id="@+id/dialog_btn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Material.Drawable.Ripple.Touch.Light"
         android:text="Cukup"/>
     <com.rey.material.widget.Button
         android:layout_marginBottom="5dp"
@@ -33,12 +36,14 @@
         android:id="@+id/dialog_btn3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Material.Drawable.Ripple.Touch.Light"
         android:text="Sedang"/>
     <com.rey.material.widget.Button
         android:background="@color/colorPrimaryDark"
         android:id="@+id/dialog_btn4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Material.Drawable.Ripple.Touch.Light"
         android:text="Selalu"/>
 
 </LinearLayout>

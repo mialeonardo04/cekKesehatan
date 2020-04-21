@@ -3,6 +3,8 @@ package com.tetapdirumah.selfcheck.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DataResponse {
+    @SerializedName("id")
+    String _id;
     @SerializedName("nama")
     private String _nama;
     @SerializedName("usia")
@@ -17,6 +19,14 @@ public class DataResponse {
     private float _flu;
     @SerializedName("cold")
     private float _cold;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
     public String get_nama() {
         return _nama;

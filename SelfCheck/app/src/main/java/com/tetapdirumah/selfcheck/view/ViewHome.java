@@ -25,12 +25,15 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.material.textfield.TextInputEditText;
 import com.leinardi.android.speeddial.SpeedDialActionItem;
 import com.leinardi.android.speeddial.SpeedDialView;
 import com.rey.material.app.Dialog;
 import com.rey.material.widget.Button;
 import com.tetapdirumah.selfcheck.R;
 import com.tetapdirumah.selfcheck.contract.ContractHome;
+import com.tetapdirumah.selfcheck.manager.DataManagerWrapper;
+import com.tetapdirumah.selfcheck.manager.IDataManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,10 +48,12 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
     SpeedDialView btnDial;
     @BindView(R.id.btnStart)
     Button btnStart;
-    @BindView(R.id.img_home)
-    ImageView img;
     @BindView(R.id.tv_link)
     TextView tvLink;
+    @BindView(R.id.et_nama_lengkap)
+    TextInputEditText etNama;
+
+    IDataManager iDataManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,14 +62,11 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
 
         ButterKnife.bind(this);
 
-        img.setImageBitmap(null);
-        Glide.with(this)
-                .load(R.drawable.img_person)
-                .fitCenter()
-                .into(img);
+        iDataManager = new DataManagerWrapper(this);
 
         speedDial();
         btnStart.setOnClickListener(v -> {
+            iDataManager.createData(etNama.getText().toString(), "0");
             goToActivity();
         });
 
@@ -78,7 +80,9 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
     @Override
     protected void onResume() {
         super.onResume();
+        etNama.setText("");
     }
+
 
     @Override
     public void speedDial() {
@@ -135,7 +139,7 @@ public class ViewHome extends AppCompatActivity implements ContractHome.View {
 
     @Override
     public void goToActivity() {
-        Intent intent = new Intent(this, ViewKonfirmasi.class);
+        Intent intent = new Intent(this, ViewForm.class);
         startActivity(intent);
     }
 

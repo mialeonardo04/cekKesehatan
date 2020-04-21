@@ -30,174 +30,254 @@
         android:text="HASIL DIAGNOSA"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"/>
 
     <androidx.cardview.widget.CardView
         android:layout_below="@+id/result_tv_title"
         android:id="@+id/card_result"
-        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_margin="10dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <com.app.progresviews.ProgressWheel
-                    android:layout_gravity="center"
-                    android:id="@+id/result_pw_covid"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    app:barWidth="5dp"
-                    app:marginBtwText="10dp"
-                    app:countText="0%"
-                    app:countTextColor="@android:color/black"
-                    app:defTextColor="@android:color/black"
-                    app:progressColor="@color/colorPrimary"
-                    app:defTextSize="10sp"
-                    app:countTextSize="12sp"
-                    app:percentage="0"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="COVID 19"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_margin="10dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <com.app.progresviews.ProgressWheel
-                    android:layout_gravity="center"
-                    android:id="@+id/result_pw_flu"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:layout_weight="2"
-                    app:barWidth="5dp"
-                    app:marginBtwText="10dp"
-                    app:countText="0%"
-                    app:countTextColor="@android:color/black"
-                    app:defTextColor="@android:color/black"
-                    app:progressColor="@color/colorPrimary"
-                    app:defTextSize="10sp"
-                    app:countTextSize="12sp"
-                    app:percentage="0"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:text="FLU"/>
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <com.app.progresviews.ProgressWheel
+                        android:layout_gravity="center"
+                        android:id="@+id/result_pw_covid"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        app:barWidth="5dp"
+                        app:marginBtwText="10dp"
+                        app:countText="0%"
+                        app:countTextColor="@android:color/black"
+                        app:defTextColor="@android:color/black"
+                        app:progressColor="@color/colorPrimary"
+                        app:defTextSize="10sp"
+                        app:countTextSize="12sp"
+                        app:percentage="0"/>
 
-            <LinearLayout
-                android:layout_margin="10dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:text="COVID 19"/>
 
+                </LinearLayout>
 
-
-                <com.app.progresviews.ProgressWheel
-                    android:layout_gravity="center"
-                    android:id="@+id/result_pw_cold"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    app:barWidth="5dp"
-                    app:marginBtwText="10dp"
-                    app:countText="0%"
-                    app:countTextColor="@android:color/black"
-                    app:defTextColor="@android:color/black"
-                    app:progressColor="@color/colorPrimary"
-                    app:defTextSize="10sp"
-                    app:countTextSize="12sp"
-                    app:percentage="0"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="COLD"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.app.progresviews.ProgressWheel
+                        android:layout_gravity="center"
+                        android:id="@+id/result_pw_flu"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_weight="2"
+                        app:barWidth="5dp"
+                        app:marginBtwText="10dp"
+                        app:countText="0%"
+                        app:countTextColor="@android:color/black"
+                        app:defTextColor="@android:color/black"
+                        app:progressColor="@color/colorPrimary"
+                        app:defTextSize="10sp"
+                        app:countTextSize="12sp"
+                        app:percentage="0"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:text="FLU"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+
+                    <com.app.progresviews.ProgressWheel
+                        android:layout_gravity="center"
+                        android:id="@+id/result_pw_cold"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        app:barWidth="5dp"
+                        app:marginBtwText="10dp"
+                        app:countText="0%"
+                        app:countTextColor="@android:color/black"
+                        app:defTextColor="@android:color/black"
+                        app:progressColor="@color/colorPrimary"
+                        app:defTextSize="10sp"
+                        app:countTextSize="12sp"
+                        app:percentage="0"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:text="COLD"/>
+
+                </LinearLayout>
 
             </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:text="message"
+                android:id="@+id/result_tv_message"/>
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/result_tv_message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Message"
+    <LinearLayout
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_below="@id/card_result"
-        android:textAlignment="center"
-        android:textSize="18dp"
-        android:layout_marginTop="20dp"/>
-
-    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:layout_above="@id/layout_btm"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btm_result"
+        android:orientation="horizontal"
+        android:layout_below="@+id/card_result">
 
-        <com.rey.material.widget.Button
-            android:layout_width="wrap_content"
+        <com.rey.material.widget.CheckBox
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/layout_btm"
-            android:layout_centerInParent="true"
-            android:background="#ff0000"
-            android:textColor="#fff"
-            android:id="@+id/btn119"
-            android:layout_marginRight="10dp"
-            android:text="119" />
+            android:layout_weight="1"
+            android:id="@+id/ck_setuju"/>
 
-        <com.rey.material.widget.Button
-            android:id="@+id/btnShare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/layout_btm"
-            android:layout_centerInParent="true"
-            android:text="BAGIKAN"
-            android:layout_toRightOf="@id/btn119"
-            android:textColor="#fff"
-            android:background="@color/colorAccent"
-            />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8">
+
+            <TextView
+                android:background="@color/colorWhite"
+                android:textColor="#000"
+                android:id="@+id/tv_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sedia"/>
+
+            <LinearLayout
+                android:id="@+id/layout_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    layout="@layout/form_identitas"/>
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
 
     </LinearLayout>
 
 
-
-
-    <include
-        android:id="@+id/layout_btm"
-        android:layout_alignParentBottom="true"
+    <LinearLayout
+        android:id="@+id/btm_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/bottom_navigation"/>
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.rey.material.widget.Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn119"
+            android:background="#ff0000"
+            android:layout_marginBottom="10dp"
+            android:text="Contact Center"
+            android:padding="10dp"
+            android:textColor="#fff"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.rey.material.widget.Button
+                android:id="@+id/btnSimpan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/layout_btm"
+                android:layout_centerInParent="true"
+                android:text="SIMPAN"
+                android:textColor="#fff"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginRight="10dp"
+                />
+
+            <com.rey.material.widget.Button
+                android:id="@+id/btnLagi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/layout_btm"
+                android:layout_centerInParent="true"
+                android:text="DIAGNOSA\nLAGI"
+                android:textColor="#fff"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginRight="10dp"
+                />
+
+            <com.rey.material.widget.Button
+                android:id="@+id/btnShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/layout_btm"
+                android:layout_centerInParent="true"
+                android:text="BAGIKAN"
+                android:textColor="#fff"
+                android:background="@color/colorPrimaryDark"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </RelativeLayout>

@@ -10,4 +10,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="link"><a href="http://tetapdirumah.id">tetapdirumah.id</a></string>
+
+    <string name="sedia">
+        Bersedia mengirimkan data?\nData dijamin keamanannya dan tidak untuk dipublikasikan. Data ini berguna nutuk membantu Anda dan keluarga bila membutuhkan bantuan sehingga lebih cepat tertangani.
+    </string>
+
+    <string name="home">
+        Beberapa gejala infeksi virus Covid-19 memliki kesamaan dengan infeksi virus influenza dan demam (cold). Aplikasi ini digunakan untuk menentukan jenis infeksi sesuai dengan gejala yang dialami. Perlu diketahui bahwa Covid-19 tidak selalu menunjukkan gejala atau Asymtomatic (Orang Tanpa Gejala-OTG) sehingga aplikasi ini tidak menjamin apakah seseorang bebas dari infeksi Covid-19, jadi star at home, tetapdirumah.id.
+    </string>
 </resources>

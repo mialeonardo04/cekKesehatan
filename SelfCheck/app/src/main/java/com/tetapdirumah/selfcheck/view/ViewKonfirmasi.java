@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.rey.material.widget.Button;
 import com.rey.material.widget.CheckBox;
 import com.tetapdirumah.selfcheck.R;
@@ -20,10 +21,10 @@ public class ViewKonfirmasi extends AppCompatActivity {
 
     static ViewKonfirmasi viewKonfirmasi;
 
-    @BindView(R.id.ck_setuju)
-    CheckBox ck;
     @BindView(R.id.btnMulai)
     Button btnMulai;
+    @BindView(R.id.et_nama_lengkap)
+    TextInputEditText etNama;
     @BindView(R.id.tv_link)
     TextView tvLink;
 
@@ -43,12 +44,8 @@ public class ViewKonfirmasi extends AppCompatActivity {
         tvLink.setMovementMethod(LinkMovementMethod.getInstance());
 
         btnMulai.setOnClickListener(v -> {
-            if (ck.isChecked()){
-                startActivity(new Intent(this, ViewFormIdentitas.class));
-            } else {
-                startActivity(new Intent(this, ViewForm.class));
-            }
-            iDataManager.createData("guest", "0");
+            iDataManager.createData(etNama.getText().toString(), "0");
+            startActivity(new Intent(this, ViewForm.class));
         });
     }
 

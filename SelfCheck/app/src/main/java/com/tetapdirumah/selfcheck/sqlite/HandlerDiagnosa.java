@@ -70,7 +70,7 @@ public class HandlerDiagnosa extends SQLiteOpenHelper {
 
     public List<DataDiagnosa> getData(){
         List<DataDiagnosa> data = new LinkedList<>();
-        String query = "SELECT * FROM " + table_name;
+        String query = "SELECT * FROM " + table_name + " ORDER BY " + key_id + " DESC LIMIT 10";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         DataDiagnosa dataDiagnosa = null;

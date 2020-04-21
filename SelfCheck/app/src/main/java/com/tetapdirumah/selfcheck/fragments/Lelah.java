@@ -42,13 +42,20 @@ public class Lelah extends Fragment implements ContractFragmentForm.View{
     @BindView(R.id.btnNext)
     Button btnNext;
     @BindView(R.id.batuk_btnPilih)
-    Button btnPilih;
+    TextView btnPilih;
     @BindView(R.id.fragment_tv_title)
     TextView tvTitle;
-    @BindView(R.id.img_fragment)
-    ImageView img;
+    @BindView(R.id.dialog_btn0)
+    Button btn0;
+    @BindView(R.id.dialog_btn1)
+    Button btn1;
+    @BindView(R.id.dialog_btn2)
+    Button btn2;
+    @BindView(R.id.dialog_btn3)
+    Button btn3;
+    @BindView(R.id.dialog_btn4)
+    Button btn4;
 
-    Button btn0, btn1, btn2, btn3, btn4;
     Boolean next = false;
     String poin = "0";
 
@@ -88,11 +95,6 @@ public class Lelah extends Fragment implements ContractFragmentForm.View{
             log();
         });
 
-        img.setImageBitmap(null);
-        Glide.with(this)
-                .load(R.drawable.img_person)
-                .fitCenter()
-                .into(img);
 
         btnBack.setOnClickListener(v -> {
             Log.d(TAG, "onButtonBack: clicked" );
@@ -101,63 +103,38 @@ public class Lelah extends Fragment implements ContractFragmentForm.View{
 
         tvTitle.setText("Kelelahan?");
 
-        btnPilih.setOnClickListener(v -> {
-            initializeDialog();
-        });
+        initializeDialog();
     }
 
     @Override
     public void initializeDialog() {
-        Dialog dialog = new Dialog(getActivity());
-        LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_form, null);
-        dialog.setContentView(view);
-        dialog.setCancelable(true);
-        dialog.setTitle("Pilih salah satu");
-        dialog.cornerRadius(5);
-        dialog.showDivider(true);
-        dialog.backgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, getActivity().getTheme()));
-        dialog.titleColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getActivity().getTheme()));
-        dialog.contentMargin(20, 20, 20, 20);
-
-        btn0 = (Button) view.findViewById(R.id.dialog_btn0);
-        btn1 = (Button) view.findViewById(R.id.dialog_btn1);
-        btn2 = (Button) view.findViewById(R.id.dialog_btn2);
-        btn3 = (Button) view.findViewById(R.id.dialog_btn3);
-        btn4 = (Button) view.findViewById(R.id.dialog_btn4);
 
         btn0.setOnClickListener(v -> {
             onItemSelected("0", "Tidak");
-            dialog.dismiss();
             next = true;
         });
 
         btn1.setOnClickListener(v -> {
             onItemSelected("1", "Sedikit");
-            dialog.dismiss();
             next = true;
         });
 
         btn2.setOnClickListener(v -> {
             onItemSelected("2", "Cukup");
-            dialog.dismiss();
             next = true;
         });
 
         btn3.setOnClickListener(v -> {
             onItemSelected("3", "Sedang");
-            dialog.dismiss();
             next = true;
         });
 
         btn4.setText("Berat");
         btn4.setOnClickListener(v -> {
             onItemSelected("4", "Berat");
-            dialog.dismiss();
             next = true;
         });
 
-        dialog.show();
     }
 
     @Override
