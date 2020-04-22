@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_batuk"
     android:background="@color/colorPrimary"
     tools:context=".fragments.Batuk">
@@ -49,6 +50,7 @@
         android:layout_marginBottom="20dp"
         android:layout_marginRight="30dp"
         android:background="#fff"
+        app:cardBackgroundColor="#fff"
         android:layout_marginLeft="30dp">
 
         <TextView
