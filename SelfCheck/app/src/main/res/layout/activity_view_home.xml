@@ -73,6 +73,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/et_nama_lengkap"
+                    android:textColor="#000"
                     android:hint="Nama Lengkap"/>
 
             </com.google.android.material.textfield.TextInputLayout>
