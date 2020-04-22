@@ -16,7 +16,7 @@
         android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
         android:text="119"
         android:textColor="#fff" />
 
@@ -26,7 +26,7 @@
         android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:text="DKI JAKARTA"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
         android:textColor="#fff"
         android:layout_gravity="center"/>
 
@@ -36,7 +36,7 @@
         android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:text="JAWA BARAT"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
         android:textColor="#fff"
         android:layout_gravity="center"/>
 
@@ -46,7 +46,7 @@
         android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:text="JAWA TENGAH"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
         android:textColor="#fff"
         android:layout_gravity="center"/>
 
@@ -56,7 +56,7 @@
         android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:text="JAWA TIMUR"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
         android:textColor="#fff"
         android:layout_gravity="center"/>
 
@@ -66,7 +66,7 @@
         android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:text="YOGYAKARTA"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
         android:textColor="#fff"
         android:layout_gravity="center"/>
 
@@ -75,7 +75,7 @@
         android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:text="BANTEN"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
         android:textColor="#fff"
         android:layout_gravity="center"/>
 
