@@ -20,18 +20,24 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCLCLOJRjOYhZnDRlwN-HNrbJPGircSI1g" />
 
-        <activity android:name=".view.ViewKonfirmasi" />
-        <activity android:name=".view.SplashScreen">
+        <activity android:name=".view.ViewKonfirmasi"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.ViewResult" />
-        <activity android:name=".view.ViewForm" />
-        <activity android:name=".view.ViewFormIdentitas" />
-        <activity android:name=".view.ViewHome" />
+        <activity android:name=".view.ViewResult"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.ViewForm"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.ViewFormIdentitas"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.ViewHome"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

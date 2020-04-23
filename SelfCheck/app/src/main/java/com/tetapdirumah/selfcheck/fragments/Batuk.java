@@ -26,11 +26,15 @@ import com.rey.material.widget.Button;
 import com.rey.material.widget.SnackBar;
 import com.tetapdirumah.selfcheck.R;
 import com.tetapdirumah.selfcheck.contract.ContractFragmentForm;
+import com.tetapdirumah.selfcheck.manager.ButtonManager;
 import com.tetapdirumah.selfcheck.manager.DataManager;
 import com.tetapdirumah.selfcheck.manager.DataManagerWrapper;
 import com.tetapdirumah.selfcheck.manager.IDataManager;
 import com.tetapdirumah.selfcheck.presenter.PresenterBatukFragment;
 import com.tetapdirumah.selfcheck.view.ViewForm;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,8 +50,6 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
     Button btnBack;
     @BindView(R.id.btnNext)
     Button btnNext;
-    @BindView(R.id.batuk_btnPilih)
-    TextView btnPilih;
     @BindView(R.id.fragment_tv_title)
     TextView tvTitle;
     @BindView(R.id.dialog_btn0)
@@ -60,6 +62,8 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
     Button btn3;
     @BindView(R.id.dialog_btn4)
     Button btn4;
+
+    ButtonManager buttonManager;
 
     Boolean next = false;
     String poin = "0";
@@ -99,62 +103,118 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
             log();
         });
 
-
         btnBack.setVisibility(View.INVISIBLE);
 
         tvTitle.setText("Batuk kering?");
 
-        initializeDialog();
 
     }
 
     @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
+    public void onResume() {
+        super.onResume();
+        initializeDialog();
+//        whenResume();
+    }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    void whenResume(){
+        if (preferences != null){
+            if (preferences.getString("batuk", "").equals("0")){
+                changeSelectedColor(btn0);
+            } else if (preferences.getString("batuk", "").equals("1")){
+                changeSelectedColor(btn1);
+            } else if (preferences.getString("batuk", "").equals("2")){
+                changeSelectedColor(btn2);
+            } else if (preferences.getString("batuk", "").equals("3")){
+                changeSelectedColor(btn3);
+            } else if (preferences.getString("batuk", "").equals("4")){
+                changeSelectedColor(btn4);
+            }
+        }
     }
 
     @Override
     public void initializeDialog() {
 
-        btn0.setOnClickListener(v -> {
-            onItemSelected("0", "Tidak");
+        btn2.setText("Kadang");
+        btn3.setText("Sering");
 
-            next = true;
+        btn0.setOnClickListener(v -> {
+            poin = "0";
+            changeSelectedColor(btn0);
+            changeNotSelecetedColor(btn1);
+            changeNotSelecetedColor(btn2);
+            changeNotSelecetedColor(btn3);
+            changeNotSelecetedColor(btn4);
+            presenter.updateBatuk();
+//            changePage(1, true);
         });
 
         btn1.setOnClickListener(v -> {
-            onItemSelected("1", "Sedikit");
-
-            next = true;
+            poin = "1";
+            changeSelectedColor(btn1);
+            changeNotSelecetedColor(btn0);
+            changeNotSelecetedColor(btn2);
+            changeNotSelecetedColor(btn3);
+            changeNotSelecetedColor(btn4);
+            presenter.updateBatuk();
+//            changePage(1, true);
         });
 
-        btn2.setText("Kadang");
         btn2.setOnClickListener(v -> {
-            onItemSelected("2", "Kadang");
-
-            next = true;
+            poin = "2";
+            changeSelectedColor(btn2);
+            changeNotSelecetedColor(btn1);
+            changeNotSelecetedColor(btn0);
+            changeNotSelecetedColor(btn3);
+            changeNotSelecetedColor(btn4);
+            presenter.updateBatuk();
+//            changePage(1, true);
         });
 
-        btn3.setText("Sering");
         btn3.setOnClickListener(v -> {
-            onItemSelected("3", "Sering");
-
-            next = true;
+            poin = "3";
+            changeSelectedColor(btn3);
+            changeNotSelecetedColor(btn1);
+            changeNotSelecetedColor(btn2);
+            changeNotSelecetedColor(btn0);
+            changeNotSelecetedColor(btn4);
+            presenter.updateBatuk();
+//            changePage(1, true);
         });
 
         btn4.setOnClickListener(v -> {
-            onItemSelected("4", "Selalu");
-
-            next = true;
+            poin = "4";
+            changeSelectedColor(btn4);
+            changeNotSelecetedColor(btn1);
+            changeNotSelecetedColor(btn2);
+            changeNotSelecetedColor(btn3);
+            changeNotSelecetedColor(btn0);
+            presenter.updateBatuk();
+//            changePage(1, true);
         });
+    }
 
+    void changePage(int id, boolean value){
+        ((ViewForm)getActivity()).changePage(id, value);
+    }
+
+    void changeSelectedColor(Button button){
+        button.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorAccent, getActivity().getTheme()));
+    }
+
+    void changeNotSelecetedColor(Button button){
+        button.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, getActivity().getTheme()));
     }
 
     @Override
     public void onItemSelected(String poin, String text) {
         this.poin = poin;
-        btnPilih.setText(text);
     }
 
     @Override

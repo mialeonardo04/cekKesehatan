@@ -254,14 +254,17 @@ public class ViewResult extends AppCompatActivity implements ContractResult.View
     }
 
     public String getCurrentCoordinat(){
-
         FusedLocationProviderClient mClient = LocationServices.getFusedLocationProviderClient(this);
         mClient.getLastLocation().addOnSuccessListener(location -> {
-            Log.d(TAG, "Lat: " + location.getLatitude());
-            Log.d(TAG, "Long: " + location.getLongitude());
-            longitude = String.valueOf(location.getLongitude());
-            latitude = String.valueOf(location.getLatitude());
-            koordinat = location.getLongitude() + ", " + location.getLatitude();
+            double longi = 0;
+            double lati = 0;
+            if (location!=null){
+                lati = location.getLatitude();
+                longi = location.getLongitude();
+            }
+            longitude = String.valueOf(longi);
+            latitude = String.valueOf(lati);
+            koordinat = longi + ", " + lati;
         });
         return koordinat;
     }

@@ -2,6 +2,10 @@ package com.tetapdirumah.selfcheck.contract;
 
 import android.os.Bundle;
 
+import com.rey.material.widget.Button;
+
+import java.util.List;
+
 public class ContractFragmentForm {
 
     public interface Presenter{

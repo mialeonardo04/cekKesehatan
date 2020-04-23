@@ -1,75 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_batuk"
     android:background="@color/colorPrimary"
+    android:orientation="vertical"
     tools:context=".fragments.Batuk">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_above="@+id/card_text"
-        android:layout_centerInParent="true">
-
-        <TextView
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:text="Apakah saat ini mengalami "/>
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
 
-        <TextView
-            android:id="@+id/fragment_tv_title"
-            android:textAlignment="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:text="Batuk"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:text="Apakah saat ini mengalami "/>
+
+            <TextView
+                android:id="@+id/fragment_tv_title"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Batuk"/>
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                layout="@layout/dialog_form"/>
+
+        </LinearLayout>
+
 
         <include
+            android:id="@+id/btm_btn"
+            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            layout="@layout/dialog_form"/>
+            layout="@layout/bottom_navigation"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_text"
-        android:layout_above="@id/btm_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="30dp"
-        android:background="#fff"
-        app:cardBackgroundColor="#fff"
-        android:layout_marginLeft="30dp">
-
-        <TextView
-            android:id="@+id/batuk_btnPilih"
-            android:textColor="#000"
-            android:padding="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="Tidak"/>
-
-    </androidx.cardview.widget.CardView>
-
-
-    <include
-        android:id="@+id/btm_btn"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/bottom_navigation"/>
-
-</RelativeLayout>
+</LinearLayout>
