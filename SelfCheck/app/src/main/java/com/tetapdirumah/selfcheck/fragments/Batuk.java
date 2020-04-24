@@ -62,6 +62,8 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
     Button btn3;
     @BindView(R.id.dialog_btn4)
     Button btn4;
+    @BindView(R.id.img_fragment)
+    ImageView imgFragment;
 
     ButtonManager buttonManager;
 
@@ -97,6 +99,12 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
 
         preferences = getActivity().getApplicationContext().getSharedPreferences("dataManager", 0);
 
+        imgFragment.setImageBitmap(null);
+        Glide.with(this)
+                .load(R.drawable.batukkering)
+                .fitCenter()
+                .into(imgFragment);
+
         btnNext.setOnClickListener(v -> {
             presenter.updateBatuk();
             ((ViewForm)getActivity()).changePage(1, true);
@@ -122,21 +130,7 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
         super.onSaveInstanceState(outState);
     }
 
-    void whenResume(){
-        if (preferences != null){
-            if (preferences.getString("batuk", "").equals("0")){
-                changeSelectedColor(btn0);
-            } else if (preferences.getString("batuk", "").equals("1")){
-                changeSelectedColor(btn1);
-            } else if (preferences.getString("batuk", "").equals("2")){
-                changeSelectedColor(btn2);
-            } else if (preferences.getString("batuk", "").equals("3")){
-                changeSelectedColor(btn3);
-            } else if (preferences.getString("batuk", "").equals("4")){
-                changeSelectedColor(btn4);
-            }
-        }
-    }
+
 
     @Override
     public void initializeDialog() {
@@ -152,7 +146,7 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
             changeNotSelecetedColor(btn3);
             changeNotSelecetedColor(btn4);
             presenter.updateBatuk();
-//            changePage(1, true);
+            changePage(1, true);
         });
 
         btn1.setOnClickListener(v -> {
@@ -163,7 +157,7 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
             changeNotSelecetedColor(btn3);
             changeNotSelecetedColor(btn4);
             presenter.updateBatuk();
-//            changePage(1, true);
+            changePage(1, true);
         });
 
         btn2.setOnClickListener(v -> {
@@ -174,7 +168,7 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
             changeNotSelecetedColor(btn3);
             changeNotSelecetedColor(btn4);
             presenter.updateBatuk();
-//            changePage(1, true);
+            changePage(1, true);
         });
 
         btn3.setOnClickListener(v -> {
@@ -185,7 +179,7 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
             changeNotSelecetedColor(btn0);
             changeNotSelecetedColor(btn4);
             presenter.updateBatuk();
-//            changePage(1, true);
+            changePage(1, true);
         });
 
         btn4.setOnClickListener(v -> {
@@ -196,7 +190,7 @@ public class Batuk extends Fragment implements ContractFragmentForm.View {
             changeNotSelecetedColor(btn3);
             changeNotSelecetedColor(btn0);
             presenter.updateBatuk();
-//            changePage(1, true);
+            changePage(1, true);
         });
     }
 

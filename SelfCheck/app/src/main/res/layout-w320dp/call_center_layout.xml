@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contact Center"
+        android:textAlignment="center"/>
+
+    <com.rey.material.widget.Button
+        android:id="@+id/btnNasional"
+        android:layout_marginBottom="10dp"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:text="119"
+        android:textColor="#fff" />
+
+    <com.rey.material.widget.Button
+        android:id="@+id/btnJakarta"
+        android:layout_marginBottom="10dp"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:text="DKI JAKARTA"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:layout_gravity="center"/>
+
+    <com.rey.material.widget.Button
+        android:id="@+id/btnJabar"
+        android:layout_marginBottom="10dp"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:text="JAWA BARAT"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:layout_gravity="center"/>
+
+    <com.rey.material.widget.Button
+        android:id="@+id/btnJateng"
+        android:layout_marginBottom="10dp"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:text="JAWA TENGAH"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:layout_gravity="center"/>
+
+    <com.rey.material.widget.Button
+        android:id="@+id/btnJatim"
+        android:layout_marginBottom="10dp"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:text="JAWA TIMUR"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:layout_gravity="center"/>
+
+    <com.rey.material.widget.Button
+        android:id="@+id/btnYogya"
+        android:layout_marginBottom="10dp"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:text="YOGYAKARTA"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:layout_gravity="center"/>
+
+    <com.rey.material.widget.Button
+        android:id="@+id/btnBanten"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:text="BANTEN"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

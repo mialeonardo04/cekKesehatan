@@ -59,6 +59,8 @@ public class Bersin extends Fragment implements ContractFragmentForm.View{
     Button btn3;
     @BindView(R.id.dialog_btn4)
     Button btn4;
+    @BindView(R.id.img_fragment)
+    ImageView imgFragment;
 
     ButtonManager buttonManager;
 
@@ -101,6 +103,12 @@ public class Bersin extends Fragment implements ContractFragmentForm.View{
             log();
         });
 
+        imgFragment.setImageBitmap(null);
+        Glide.with(this)
+                .load(R.drawable.bersin)
+                .fitCenter()
+                .into(imgFragment);
+
 
         btnBack.setOnClickListener(v -> {
             Log.d(TAG, "onButtonBack: clicked" );
@@ -116,24 +124,9 @@ public class Bersin extends Fragment implements ContractFragmentForm.View{
     public void onResume() {
         super.onResume();
         initializeDialog();
-        whenResume();
     }
 
-    void whenResume(){
-        if (preferences != null){
-            if (preferences.getString("bersin", "").equals("0")){
-                changeSelectedColor(btn0);
-            } else if (preferences.getString("bersin", "").equals("1")){
-                changeSelectedColor(btn1);
-            } else if (preferences.getString("bersin", "").equals("2")){
-                changeSelectedColor(btn2);
-            } else if (preferences.getString("bersin", "").equals("3")){
-                changeSelectedColor(btn3);
-            } else if (preferences.getString("bersin", "").equals("4")){
-                changeSelectedColor(btn4);
-            }
-        }
-    }
+
 
     @Override
     public void initializeDialog() {

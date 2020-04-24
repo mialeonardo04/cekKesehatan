@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".view.ViewKonfirmasi">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        layout="@layout/header_layout"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cv_konfirmasi"
+        android:textAlignment="center"
+        android:text="Masukkan Nama Lengkap"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_konfirmasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_above="@+id/btnMulai">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nama_lengkap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Lengkap"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.rey.material.widget.Button
+        android:id="@+id/btnMulai"
+        style="@style/Material.Drawable.Ripple.Touch.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="100dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_color_accent"
+        android:padding="20dp"
+        android:text="Mulai Asesmen"
+        android:textColor="#fff" />
+
+
+</RelativeLayout>

@@ -1,15 +1,17 @@
 package com.tetapdirumah.selfcheck.fragments;
 
 
-import android.app.AlertDialog;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
@@ -64,16 +66,15 @@ public class Diare extends Fragment implements ContractFragmentForm.View, Contra
     Button btn3;
     @BindView(R.id.dialog_btn4)
     Button btn4;
+    @BindView(R.id.img_fragment)
+    ImageView imgFragment;
 
-    Boolean next = false;
     String poin = "0";
-    int btnIndex = 0;
 
     private ContractFragmentForm.Presenter presenter;
     private DataManager dataManager;
     private IDataManager iDataManager;
 
-    ButtonManager buttonManager;
     SharedPreferences preferences;
 
     Intent intent;
@@ -105,6 +106,12 @@ public class Diare extends Fragment implements ContractFragmentForm.View, Contra
 
         btnNext.setText("Submit");
 
+        imgFragment.setImageBitmap(null);
+        Glide.with(this)
+                .load(R.drawable.diare)
+                .fitCenter()
+                .into(imgFragment);
+
         btnNext.setOnClickListener(v -> {
             presenter.updateDiare();
             log();
@@ -118,134 +125,112 @@ public class Diare extends Fragment implements ContractFragmentForm.View, Contra
 
         tvTitle.setText("Diare?");
 
-
+        initializeDialog();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
-        btn0.setOnClickListener(v -> {
-            poin = "0";
-            btnIndex = 0;
-            presenter.updateDiare();
-            initializeDialog();
-        });
-
-        btn1.setOnClickListener(v -> {
-            poin = "1";
-            btnIndex = 1;
-            presenter.updateDiare();
-            initializeDialog();
-        });
-
-        btn2.setOnClickListener(v -> {
-            poin = "2";
-            btnIndex = 2;
-            presenter.updateDiare();
-            initializeDialog();
-        });
-
-        btn3.setOnClickListener(v -> {
-            poin = "3";
-            btnIndex = 3;
-            presenter.updateDiare();
-            initializeDialog();
-        });
-
-        btn4.setOnClickListener(v -> {
-            poin = "4";
-            btnIndex = 4;
-            presenter.updateDiare();
-            initializeDialog();
-        });
-//        whenResume();
+//        initializeDialog();
     }
 
-    void whenResume(){
-        if (preferences != null){
-            if (preferences.getString("diare", "").equals("0")){
-                changeSelectedColor(btn0);
-                changeNotSelecetedColor(btn1);
-                changeNotSelecetedColor(btn2);
-                changeNotSelecetedColor(btn3);
-                changeNotSelecetedColor(btn4);
-            } else if (preferences.getString("diare", "").equals("1")){
-                changeSelectedColor(btn1);
-                changeNotSelecetedColor(btn0);
-                changeNotSelecetedColor(btn2);
-                changeNotSelecetedColor(btn3);
-                changeNotSelecetedColor(btn4);
-            } else if (preferences.getString("diare", "").equals("2")){
-                changeSelectedColor(btn2);
-                changeNotSelecetedColor(btn1);
-                changeNotSelecetedColor(btn0);
-                changeNotSelecetedColor(btn3);
-                changeNotSelecetedColor(btn4);
-            } else if (preferences.getString("diare", "").equals("3")){
-                changeSelectedColor(btn3);
-                changeNotSelecetedColor(btn1);
-                changeNotSelecetedColor(btn2);
-                changeNotSelecetedColor(btn0);
-                changeNotSelecetedColor(btn4);
-            } else if (preferences.getString("diare", "").equals("4")){
-                changeSelectedColor(btn4);
-                changeNotSelecetedColor(btn1);
-                changeNotSelecetedColor(btn2);
-                changeNotSelecetedColor(btn3);
-                changeNotSelecetedColor(btn0);
-            }
-        }
-    }
+
 
     @Override
     public void initializeDialog() {
 
         btn2.setText("Kadang");
 
-        if (btnIndex == 0){
+        btn0.setOnClickListener(v -> {
+            poin = "0";
+            resetColor();
             changeSelectedColor(btn0);
-            changeNotSelecetedColor(btn1);
-            changeNotSelecetedColor(btn2);
-            changeNotSelecetedColor(btn3);
-            changeNotSelecetedColor(btn4);
-        } else if (btnIndex == 1){
+            presenter.updateBatuk();
+            showAlertDialog();
+        });
+
+        btn1.setOnClickListener(v -> {
+            poin = "1";
+            resetColor();
             changeSelectedColor(btn1);
-            changeNotSelecetedColor(btn0);
-            changeNotSelecetedColor(btn2);
-            changeNotSelecetedColor(btn3);
-            changeNotSelecetedColor(btn4);
-        } else if (btnIndex == 2){
+            presenter.updateBatuk();
+            showAlertDialog();
+        });
+
+        btn2.setOnClickListener(v -> {
+            poin = "2";
+            resetColor();
             changeSelectedColor(btn2);
-            changeNotSelecetedColor(btn1);
-            changeNotSelecetedColor(btn0);
-            changeNotSelecetedColor(btn3);
-            changeNotSelecetedColor(btn4);
-        } else if (btnIndex == 3){
+            presenter.updateBatuk();
+            showAlertDialog();
+        });
+
+        btn3.setOnClickListener(v -> {
+            poin = "3";
+            resetColor();
             changeSelectedColor(btn3);
-            changeNotSelecetedColor(btn1);
-            changeNotSelecetedColor(btn2);
-            changeNotSelecetedColor(btn0);
-            changeNotSelecetedColor(btn4);
-        } else if (btnIndex == 4){
+            presenter.updateBatuk();
+            showAlertDialog();
+        });
+
+        btn4.setOnClickListener(v -> {
+            poin = "4";
+            resetColor();
             changeSelectedColor(btn4);
-            changeNotSelecetedColor(btn1);
-            changeNotSelecetedColor(btn2);
-            changeNotSelecetedColor(btn3);
-            changeNotSelecetedColor(btn0);
-        }
+            presenter.updateBatuk();
+            showAlertDialog();
+        });
     }
 
     void changePage(int id, boolean value){
         ((ViewForm)getActivity()).changePage(id, value);
     }
 
+    void showAlertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage("Lakukan diagnosa?")
+                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        toActivityResult();
+                    }
+                })
+                .setNegativeButton("Cek lagi", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.d(TAG, "cancel");
+                        resetColor();
+                        dialog.dismiss();
+                    }
+                });
+//        builder.show();
+        AlertDialog dialog = builder.create();
+        dialog.setOnShowListener(dialog1 -> {
+            dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(ResourcesCompat.getColor(getResources(), R.color.colorBlack, getActivity().getTheme()));
+            dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(ResourcesCompat.getColor(getResources(), R.color.colorBlack, getActivity().getTheme()));
+        });
+        dialog.setOnCancelListener(dialog1 -> {
+            resetColor();
+        });
+        dialog.show();
+    }
+
     void changeSelectedColor(Button button){
         button.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorAccent, getActivity().getTheme()));
     }
 
+    @SuppressLint("ResourceAsColor")
     void changeNotSelecetedColor(Button button){
-        button.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, getActivity().getTheme()));
+        ((Button)button).setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, getActivity().getTheme()));
+    }
+
+    void resetColor(){
+        Log.d(TAG, "resetColor");
+        changeNotSelecetedColor(btn0);
+        changeNotSelecetedColor(btn1);
+        changeNotSelecetedColor(btn2);
+        changeNotSelecetedColor(btn3);
+        changeNotSelecetedColor(btn4);
     }
 
     @Override

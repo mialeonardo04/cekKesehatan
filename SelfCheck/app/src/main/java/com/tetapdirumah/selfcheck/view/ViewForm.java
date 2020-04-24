@@ -87,6 +87,7 @@ public class ViewForm extends AppCompatActivity implements ContractForm.View {
         adapterTab.addFragment(new Lelah(), "Lelah");
         adapterTab.addFragment(new Diare(), "Diare");
         vp.setAdapter(adapterTab);
+        vp.setOffscreenPageLimit(9);
         vp.setPagingEnabled(false);
         tb.setupWithViewPager(vp);
     }
