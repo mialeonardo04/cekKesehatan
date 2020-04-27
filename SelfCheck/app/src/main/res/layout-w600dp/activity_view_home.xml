@@ -82,7 +82,7 @@
                         android:id="@+id/et_nama_lengkap"
                         android:textSize="20dp"
                         android:textColor="#000"
-                        android:hint="Nama Lengkap"/>
+                        android:hint="Nama"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
