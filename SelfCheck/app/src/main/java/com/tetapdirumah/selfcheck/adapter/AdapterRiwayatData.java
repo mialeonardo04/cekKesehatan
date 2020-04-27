@@ -82,7 +82,7 @@ public class AdapterRiwayatData extends RecyclerView.Adapter<AdapterRiwayatData.
 
         public String showDate(String date){
             long milisecond = Long.parseLong(date);
-            String resultDate = DateFormat.format("dd/MM/yyyy hh:mm", new Date(milisecond)).toString();
+            String resultDate = DateFormat.format("dd/MM/yyyy HH:mm:ss", new Date(milisecond)).toString();
             return resultDate;
         }
     }
