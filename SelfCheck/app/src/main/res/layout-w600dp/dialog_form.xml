@@ -13,28 +13,25 @@
 
         <com.rey.material.widget.Button
             android:layout_margin="5dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/button_color_primary_dark"
             android:id="@+id/dialog_btn0"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             style="@style/Material.Drawable.Ripple.Touch.Light"
             android:text="Tidak"/>
         <com.rey.material.widget.Button
             android:layout_margin="5dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/button_color_primary_dark"
             android:id="@+id/dialog_btn1"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             style="@style/Material.Drawable.Ripple.Touch.Light"
             android:text="Sedikit"/>
         <com.rey.material.widget.Button
             android:layout_margin="5dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/button_color_primary_dark"
             android:id="@+id/dialog_btn2"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             style="@style/Material.Drawable.Ripple.Touch.Light"
             android:text="Cukup"/>
@@ -49,19 +46,17 @@
 
         <com.rey.material.widget.Button
             android:layout_margin="5dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/button_color_primary_dark"
             android:id="@+id/dialog_btn3"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             style="@style/Material.Drawable.Ripple.Touch.Light"
             android:text="Sedang"/>
         <com.rey.material.widget.Button
             android:layout_margin="5dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/button_color_primary_dark"
             android:id="@+id/dialog_btn4"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             style="@style/Material.Drawable.Ripple.Touch.Light"
             android:text="Selalu"/>

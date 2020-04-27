@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@color/colorPrimaryDark"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Aplikasi Self-Assesment COVID-19"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. Gejala yang dipilih berdasarkan keterangan dalam situs di bawah ini yang merujuk WHO dan CDC:"/>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="a. https://thespinoff.co.nz/science/18-03-2020/siouxsie-wiles-how-testing-for-covid-19-works/"/>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="b. https://www.healthline.com/health/coronavirus-symptoms#symptoms."/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. Algoritma yang diterapkan menggunakan simple additive weighting (SAW) dengan sedikit penyesuaian bobot sehingga menambah faktor pembeda hasil penghitungan"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3. Hasil self-assesment tidak menjadi acuan seseorang bebas dari COVID-19. Segera ke dokter bila ada hejala-gejala"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4. Pengembangan aplikasi ini didukung oleh Bimasakti15 dan Pendidikan Teknik Informatika, FKIP, UNS Surakarta"/>
+
+</LinearLayout>

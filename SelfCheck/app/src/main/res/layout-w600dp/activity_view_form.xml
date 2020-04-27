@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_form"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context=".view.ViewForm">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        layout="@layout/header_layout"/>
+
+    <com.tetapdirumah.selfcheck.manager.DisableSwipeManager
+        android:clickable="false"
+        android:background="@color/colorPrimary"
+        android:id="@+id/layout_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.google.android.material.tabs.TabLayout
+            android:contextClickable="false"
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabBackground="@drawable/selector_indicator_dot"
+            app:tabIndicator="@drawable/background_tab_indicator"
+            app:tabIndicatorGravity="center"
+            app:tabPaddingStart="10dp"
+            app:tabPaddingEnd="10dp"
+            app:tabGravity="center"
+            app:tabIndicatorColor="@color/colorPrimaryDark"
+            />
+
+    </com.tetapdirumah.selfcheck.manager.DisableSwipeManager>
+
+
+
+</LinearLayout>

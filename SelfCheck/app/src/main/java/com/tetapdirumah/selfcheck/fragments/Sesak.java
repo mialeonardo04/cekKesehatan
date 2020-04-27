@@ -81,7 +81,7 @@ public class Sesak extends Fragment implements ContractFragmentForm.View{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the layout-w480dp for this fragment
         return inflater.inflate(R.layout.fragment_batuk, container, false);
     }
 
@@ -114,6 +114,8 @@ public class Sesak extends Fragment implements ContractFragmentForm.View{
         });
 
         tvTitle.setText("Sesak nafas?");
+
+        btn4.setText("Berat");
     }
 
     @Override
@@ -127,7 +129,7 @@ public class Sesak extends Fragment implements ContractFragmentForm.View{
     @Override
     public void initializeDialog() {
 
-        btn4.setText("Berat");
+
 
         btn0.setOnClickListener(v -> {
             poin = "0";
@@ -190,11 +192,12 @@ public class Sesak extends Fragment implements ContractFragmentForm.View{
     }
 
     void changeSelectedColor(Button button){
-        button.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorAccent, getActivity().getTheme()));
+        button.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_color_accent, getActivity().getTheme()));
+        Log.d(TAG, "changeSelectedColor: " + button.getText().toString());
     }
 
     void changeNotSelecetedColor(Button button){
-        button.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, getActivity().getTheme()));
+        button.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_color_primary_dark, getActivity().getTheme()));
     }
 
     @Override

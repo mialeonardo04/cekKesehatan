@@ -7,7 +7,7 @@
     android:background="@color/colorPrimary"
     tools:context=".fragments.Demam">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- TODO: Update blank fragment layout-w480dp -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

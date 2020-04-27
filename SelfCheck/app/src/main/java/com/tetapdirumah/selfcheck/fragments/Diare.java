@@ -88,8 +88,13 @@ public class Diare extends Fragment implements ContractFragmentForm.View, Contra
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_batuk, container, false);
+        // Inflate the layout-w480dp for this fragment
+        View fragmentView = inflater.inflate(R.layout.fragment_batuk, container, false);
+        ButterKnife.bind(this, fragmentView);
+        btn0.callOnClick();
+
+        return fragmentView;
+
     }
 
     @Override
@@ -125,6 +130,8 @@ public class Diare extends Fragment implements ContractFragmentForm.View, Contra
 
         tvTitle.setText("Diare?");
 
+        btn2.setText("Kadang");
+
         initializeDialog();
     }
 
@@ -132,14 +139,13 @@ public class Diare extends Fragment implements ContractFragmentForm.View, Contra
     public void onResume() {
         super.onResume();
 //        initializeDialog();
+//        resetColor();
     }
 
 
 
     @Override
     public void initializeDialog() {
-
-        btn2.setText("Kadang");
 
         btn0.setOnClickListener(v -> {
             poin = "0";
@@ -199,8 +205,7 @@ public class Diare extends Fragment implements ContractFragmentForm.View, Contra
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Log.d(TAG, "cancel");
-                        resetColor();
-                        dialog.dismiss();
+                        dialog.cancel();
                     }
                 });
 //        builder.show();
@@ -216,20 +221,25 @@ public class Diare extends Fragment implements ContractFragmentForm.View, Contra
     }
 
     void changeSelectedColor(Button button){
-        button.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorAccent, getActivity().getTheme()));
+        button.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_color_accent, getActivity().getTheme()));
+        Log.d(TAG, "changeSelectedColor: " + button.getText().toString());
     }
 
-    @SuppressLint("ResourceAsColor")
     void changeNotSelecetedColor(Button button){
-        ((Button)button).setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, getActivity().getTheme()));
+        button.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_color_primary_dark, getActivity().getTheme()));
     }
 
     void resetColor(){
         Log.d(TAG, "resetColor");
+        btn0.setText("Tidak");
         changeNotSelecetedColor(btn0);
+        btn1.setText("Sedikit");
         changeNotSelecetedColor(btn1);
+        btn2.setText("Kadang");
         changeNotSelecetedColor(btn2);
+        btn3.setText("Sedang");
         changeNotSelecetedColor(btn3);
+        btn4.setText("Selalu");
         changeNotSelecetedColor(btn4);
     }
 
