@@ -162,12 +162,12 @@
             </LinearLayout>
 
             <TextView
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textColor="#000"
-                android:textSize="12dp"
+                android:textSize="11p"
                 android:text="message"
                 android:id="@+id/result_tv_message"/>
 
@@ -200,7 +200,7 @@
                 android:textColor="#000"
                 android:id="@+id/tv_form"
                 android:layout_width="match_parent"
-                android:textSize="12dp"
+                android:textSize="11dp"
                 android:layout_height="wrap_content"
                 android:text="@string/sedia"/>
 
@@ -229,7 +229,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:orientation="vertical">
@@ -242,7 +242,7 @@
             android:layout_marginBottom="10dp"
             android:text="Contact Center"
             android:textSize="12dp"
-            android:padding="10dp"
+            android:padding="5dp"
             android:textColor="#fff"/>
 
         <LinearLayout
