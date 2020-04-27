@@ -84,7 +84,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/et_nama_lengkap"
                         android:textColor="#000"
-                        android:hint="Nama Lengkap"/>
+                        android:hint="Nama"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,7 +102,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/button_color_primary_dark"
             android:padding="20dp"
-            android:text="Mulai Asesmen"
+            android:text="Mulai Diagnosa"
             android:textColor="#fff" />
 
         <LinearLayout
