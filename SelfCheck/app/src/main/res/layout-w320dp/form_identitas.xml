@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -22,8 +24,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/et_telp"
                 android:inputType="number"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:textColor="#000"
                 android:textSize="12dp"
                 android:hint="Nomor Telepon"/>
@@ -41,8 +43,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/et_usia"
                 android:inputType="number"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:textColor="#000"
                 android:textSize="12dp"
                 android:hint="Usia"/>
@@ -59,8 +61,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_kota"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:textColor="#000"
                 android:textSize="12dp"
                 android:hint="Kota/Kabupaten"/>
@@ -77,8 +79,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_kecamatan"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:textColor="#000"
                 android:textSize="12dp"
                 android:hint="Kecamatan"/>

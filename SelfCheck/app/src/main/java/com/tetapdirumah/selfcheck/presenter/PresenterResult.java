@@ -65,9 +65,9 @@ public class PresenterResult implements ContractResult.Presenter {
                         iDataManager.updateCold(String.valueOf(cold));
                         view.initializeData();
                         if (covid < 10){
-                            view.showMessage("HATI-HATI! DIHARAPKAN MELAKUKAN ISOLASI MANDIRI");
+                            view.showMessage("");
                         } else if (covid < 50){
-                            view.showMessage("WASPADA! DIANJURKAN UNTUK PERIKSAKAN DIRI KE RUMAH SAKIT RUJUKAN COVID 19 DAN ISOLASI MANDIRI");
+                            view.showMessage("");
                         } else {
                             view.btnShow();
                             view.showMessage("SEGERA HUBUNGI LAYANAN FASILITAS KESEHATAN DI DAERAH ANDA UNTUK PENANGANAN COVID 19 ATAU LANGSUNG KE RUMAH SAKIT RUJUKAN COVID 19");

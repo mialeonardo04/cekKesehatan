@@ -1,5 +1,6 @@
 package com.tetapdirumah.selfcheck.adapter;
 
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import com.app.progresviews.ProgressWheel;
 import com.tetapdirumah.selfcheck.R;
 import com.tetapdirumah.selfcheck.sqlite.DataDiagnosa;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -65,7 +68,7 @@ public class AdapterRiwayatData extends RecyclerView.Adapter<AdapterRiwayatData.
         }
 
         public void setData(DataDiagnosa data){
-            tvNama.setText(data.get_nama());
+            tvNama.setText(data.get_nama() + ", " + showDate(data.get_date_created()));
             setProgressbar(data.get_covid().toString(), pwCovid);
             setProgressbar(data.get_flu().toString(), pwFlu);
             setProgressbar(data.get_cold().toString(), pwCold);
@@ -75,6 +78,12 @@ public class AdapterRiwayatData extends RecyclerView.Adapter<AdapterRiwayatData.
             wheel.setStepCountText(s);
             float val = (Float.parseFloat(s) * 360) / 100;
             wheel.setPercentage((int)val);
+        }
+
+        public String showDate(String date){
+            long milisecond = Long.parseLong(date);
+            String resultDate = DateFormat.format("dd/MM/yyyy hh:mm", new Date(milisecond)).toString();
+            return resultDate;
         }
     }
 }
